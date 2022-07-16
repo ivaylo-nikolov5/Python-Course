@@ -1,8 +1,12 @@
-lines = int(input())
+def even_matrix(rows):
+    matrix = []
 
-even_numbers = []
+    for _ in range(rows):
+        nums = [int(x) for x in input().split(", ") if int(x) % 2 == 0]
+        matrix.append(nums)
 
-for _ in range(lines):
-    even_numbers.append([x for x in [int(y) for y in input().split(", ")] if x % 2 == 0])
+    print(matrix)
 
-print(even_numbers)
+
+rows = int(input())
+even_matrix(rows)

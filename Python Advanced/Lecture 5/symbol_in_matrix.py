@@ -1,16 +1,17 @@
+def symbol_in_matrix(rows):
+    matrix = [[x for x in input()] for _ in range(rows)]
+    result = None
+    special_symbol = input()
+    for row in matrix:
+        if special_symbol in row:
+            result = (matrix.index(row), row.index(special_symbol))
+            break
+
+    if result:
+        print(result)
+    else:
+        print(f"{special_symbol} does not occur in the matrix")
+
+
 rows = int(input())
-
-matrix = [[j for j in input()] for i in range(rows)]
-searched_symbol = input()
-is_found = False
-
-for row_index in range(rows):
-    for col_index in range(rows):
-        if matrix[row_index][col_index] == searched_symbol:
-            is_found = True
-            print(f"({row_index}, {col_index})")
-            exit()
-
-
-if not is_found:
-    print(f"{searched_symbol} does not occur in the matrix")
+symbol_in_matrix(rows)

@@ -1,12 +1,12 @@
-lines, columns = input().split(", ")
+def sum_matrix_els(rows):
+    matrix = [[int(el) for el in input().split(", ")] for _ in range(rows)]
+    matrix_sum = 0
+    for row in matrix:
+        matrix_sum += sum(row)
 
-nums = []
-total = 0
-for _ in range(int(lines)):
-    numbers = list(map(int, input().split(", ")))
-    if len(numbers) == int(columns):
-        nums.append(numbers)
-        total += sum(numbers)
+    print(matrix_sum)
+    print(matrix)
 
-print(total)
-print(nums)
+
+rows, cols = [int(x) for x in input().split(", ")]
+sum_matrix_els(rows)

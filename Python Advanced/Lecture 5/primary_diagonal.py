@@ -1,13 +1,11 @@
+def primary_diagonal(rows):
+    matrix = [[int(x) for x in input().split()] for _ in range(rows)]
+    result = 0
+    for row in range(rows):
+        result += matrix[row][row]
+
+    print(result)
+
+
 rows = int(input())
-
-matrix = []
-
-for _ in range(rows):
-    matrix.append([int(x) for x in input().split()])
-
-res = 0
-
-for i in range(rows):
-    res += matrix[i][i]
-
-print(res)
+primary_diagonal(rows)

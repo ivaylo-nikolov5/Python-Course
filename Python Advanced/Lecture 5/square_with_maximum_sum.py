@@ -1,16 +1,19 @@
-rows, cols = [int(x) for x in input().split(", ")]
+def square_with_maximum_sum(rows, cols):
+    matrix = [[int(x) for x in input().split(", ")] for _ in range(rows)]
+    max_sum = [-99999999999999999]
 
-matrix = [[int(j) for j in input().split(", ")] for i in range(rows)]
+    for row_index in range(rows - 1):
+        for col_index in range(cols - 1):
+            nums = [matrix[row_index][col_index], matrix[row_index][col_index + 1],
+                    matrix[row_index + 1][col_index], matrix[row_index + 1][col_index + 1]]
 
-sum_matrix = []
+            if sum(nums) > sum(max_sum):
+                max_sum = nums
 
-for row_index in range(rows - 1):
-    for col_index in range(cols - 1):
-        sub_matrix = [matrix[row_index][col_index], matrix[row_index][col_index + 1],
-                      matrix[row_index + 1][col_index], matrix[row_index + 1][col_index + 1]]
-        if sum(sub_matrix) > sum(sum_matrix):
-            sum_matrix = sub_matrix
+    print(max_sum[0], max_sum[1])
+    print(max_sum[2], max_sum[3])
+    print(sum(max_sum))
 
-print(*sum_matrix[:2], sep=" ")
-print(*sum_matrix[2:], sep=" ")
-print(sum(sum_matrix))
+
+rows, columns = [int(x) for x in input().split(", ")]
+square_with_maximum_sum(rows, columns)
