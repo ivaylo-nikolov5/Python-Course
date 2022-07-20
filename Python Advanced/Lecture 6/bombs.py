@@ -1,47 +1,49 @@
-size = int(input())
+def is_outside(row, col, rows, matrix):
+    return 0 <= row < rows and 0 <= col < rows
 
-matrix = [[int(x) for x in input().split()]for _ in range(size)]
+def explode_func(matrix, bomb):
+    bomb_row, bomb_col = [int(x) for x in bomb.split(",")]
+    value = matrix[bomb_row][bomb_col]
+    if matrix[bomb_row][bomb_col] > 0:
+        matrix[bomb_row][bomb_col] = 0
+        if is_outside(bomb_row - 1, bomb_col - 1, rows, matrix) and matrix[bomb_row - 1][bomb_col - 1] > 0:
+            matrix[bomb_row - 1][bomb_col - 1] -= value
+        if is_outside(bomb_row - 1, bomb_col, rows, matrix) and matrix[bomb_row - 1][bomb_col] > 0:
+            matrix[bomb_row - 1][bomb_col] -= value
+        if is_outside(bomb_row - 1, bomb_col + 1, rows, matrix) and matrix[bomb_row - 1][bomb_col + 1] > 0:
+            matrix[bomb_row - 1][bomb_col + 1] -= value
+        if is_outside(bomb_row, bomb_col - 1, rows, matrix) and matrix[bomb_row][bomb_col - 1] > 0:
+            matrix[bomb_row][bomb_col - 1] -= value
+        if is_outside(bomb_row, bomb_col + 1, rows, matrix) and matrix[bomb_row][bomb_col + 1] > 0:
+            matrix[bomb_row][bomb_col + 1] -= value
+        if is_outside(bomb_row + 1, bomb_col - 1, rows, matrix) and matrix[bomb_row + 1][bomb_col - 1] > 0:
+            matrix[bomb_row + 1][bomb_col - 1] -= value
+        if is_outside(bomb_row + 1, bomb_col, rows, matrix) and matrix[bomb_row + 1][bomb_col] > 0:
+            matrix[bomb_row + 1][bomb_col] -= value
+        if is_outside(bomb_row + 1, bomb_col + 1, rows, matrix) and matrix[bomb_row + 1][bomb_col + 1] > 0:
+            matrix[bomb_row + 1][bomb_col + 1] -= value
 
-bombs_coordinates = input().split()
+    return matrix
 
-for bomb in bombs_coordinates:
-    row, col = (int(x) for x in bomb.split(","))
-    value = matrix[row][col]
-    matrix[row][col] = 0
-    if value > 0:
-        if row - 1 >= 0 and col - 1 >= 0 and matrix[row - 1][col - 1] > 0:
-            matrix[row - 1][col - 1] -= value
+def bombs(r):
+    matrix = [[int(x) for x in input().split()] for _ in range(r)]
+    bombs_coordinates = input().split()
 
-        if row - 1 >= 0 and matrix[row - 1][col] > 0:
-            matrix[row - 1][col] -= value
+    for bomb in bombs_coordinates:
+        matrix = explode_func(matrix, bomb)
 
-        if row - 1 >= 0 and col + 1 < size and matrix[row - 1][col + 1] > 0:
-            matrix[row - 1][col + 1] -= value
+    active_cells = 0
+    active_cells_sum = 0
+    for row in matrix:
+        for col in row:
+            if col > 0:
+                active_cells += 1
+                active_cells_sum += col
 
-        if col - 1 >= 0 and matrix[row][col - 1] > 0:
-            matrix[row][col - 1] -= value
+    print(f"Alive cells: {active_cells}")
+    print(f"Sum: {active_cells_sum}")
+    for row in matrix:
+        print(*row, sep=" ")
 
-        if col + 1 < size and matrix[row][col + 1] > 0:
-            matrix[row][col + 1] -= value
-
-        if row + 1 < size and col - 1 >= 0 and matrix[row + 1][col - 1] > 0:
-            matrix[row + 1][col - 1] -= value
-
-        if row + 1 < size and matrix[row + 1][col] > 0:
-            matrix[row + 1][col] -= value
-
-        if row + 1 < size and col + 1 < size and matrix[row + 1][col + 1] > 0:
-            matrix[row + 1][col + 1] -= value
-
-alive_cells = 0
-sum_cells = 0
-
-for x in matrix:
-    for y in x:
-        if y > 0:
-            alive_cells += 1
-            sum_cells += y
-
-print(f"Alive cells: {alive_cells}\nSum: {sum_cells}")
-for x in matrix:
-    print(" ".join(str(el) for el in x))
+rows = int(input())
+bombs(rows)

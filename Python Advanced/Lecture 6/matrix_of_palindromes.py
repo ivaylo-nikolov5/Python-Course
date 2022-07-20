@@ -1,9 +1,10 @@
+def matrix_of_palindromes(r, c):
+    for row in range(r):
+        for col in range(c):
+            print(f"{chr(97 + row)}{chr(97 + row + col)}{chr(97 + row)}", end=" ")
+        print()
+
+
 rows, cols = [int(x) for x in input().split()]
-
-letters = "abcdefghijklmnopqrstuvwxyz"
-
-for row in range(rows):
-    for col in range(cols):
-        print(f"{letters[row]}{letters[row + col]}{letters[row]}", end=" ")
-    print()
+matrix_of_palindromes(rows, cols)
 
