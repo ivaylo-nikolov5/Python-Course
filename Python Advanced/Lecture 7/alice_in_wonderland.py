@@ -1,27 +1,12 @@
 def is_outside(row, col, rows):
-    return 0 > row or 0 > col or row >= rows or col >= rows
-
-def move_func(row, col, command):
-    if command == "up":
-        return row - 1, col
-    elif command == "down":
-        return row + 1, col
-    elif command == "left":
-        return row, col - 1
-    else:
-        return row, col + 1
-
+    return row < 0 or col < 0 or row >= rows or col >= rows
 
 rows = int(input())
 
 matrix = []
 alice_row = 0
 alice_col = 0
-rabbit_row = 0
-rabbit_col = 0
-tea_bags = 0
 failed = False
-felt = False
 
 
 for row in range(rows):
@@ -30,42 +15,49 @@ for row in range(rows):
         if matrix[row][col] == "A":
             alice_row = row
             alice_col = col
-        elif matrix[row][col] == "R":
-            rabbit_row = row
-            rabbit_col = col
 
-command = input()
 matrix[alice_row][alice_col] = "*"
+tea_bags = 0
+
 
 while True:
+    command = input()
+
     if not command:
         break
 
-    alice_row, alice_col = move_func(alice_row, alice_col, command)
+    if command == "right":
+        alice_col += 1
+    elif command == "left":
+        alice_col -= 1
+    elif command == "down":
+        alice_row += 1
+    else:
+        alice_row -= 1
 
     if is_outside(alice_row, alice_col, rows):
         failed = True
-        break
-
-    elif alice_row == rabbit_row and alice_col == rabbit_col:
-        matrix[rabbit_row][rabbit_col] = "*"
-        felt = True
-        break
-
-    else:
-        if matrix[alice_row][alice_col].isdigit():
-            tea_bags += int(matrix[alice_row][alice_col])
+    elif matrix[alice_row][alice_col] == "R":
         matrix[alice_row][alice_col] = "*"
+        failed = True
 
-        if tea_bags >= 10:
-            break
+    if failed:
+        break
 
-    command = input()
+    if not matrix[alice_row][alice_col].isdigit():
+        matrix[alice_row][alice_col] = "*"
+        continue
 
-if failed or felt:
-    print("Alice didn't make it to the tea party.")
-else:
+    tea_bags += int(matrix[alice_row][alice_col])
+    matrix[alice_row][alice_col] = "*"
+
+    if tea_bags >= 10:
+        break
+
+if not failed:
     print("She did it! She went to the party.")
+else:
+    print("Alice didn't make it to the tea party.")
 
 for row in matrix:
     print(*row, sep=" ")

@@ -1,89 +1,101 @@
-def get_next_pos(row, col, direction):
+def move_func(player_row, player_col, matrix, steps, rows, direction):
     if direction == "right":
-        return row, col + 1
-    elif direction == "left":
-        return row, col - 1
-    elif direction == "up":
-        return row - 1, col
-    else:
-        return row + 1, col
+        if is_inside(player_row, player_col + steps, rows) and matrix[player_row][player_col + steps] != "X":
+            player_col += steps
 
-presents = int(input())
-rows = int(input())
+    elif direction == "left":
+        if is_inside(player_row, player_col - steps, rows) and matrix[player_row][player_col - steps] != "X":
+            player_col -= steps
+    elif direction == "down":
+        if is_inside(player_row + steps, player_col, rows) and matrix[player_row + steps][player_col] != "X":
+            player_row += steps
+
+    else:
+        if is_inside(player_row - steps, player_col, rows) and matrix[player_row - steps][player_col] != "X":
+            player_row -= steps
+
+    return player_row, player_col
+
+
+def is_inside(row, col, rows):
+    return 0 <= row < rows and 0 <= col < rows
+
+
+rows = 5
 
 matrix = []
-santa_row = 0
-santa_col = 0
-total_good_kids = 0
-delivered_presents = 0
+
+player_row = 0
+player_col = 0
+targets = 0
+shot_targets = []
 
 for row in range(rows):
     matrix.append([x for x in input().split()])
     for col in range(rows):
-        if matrix[row][col] == "S":
-            santa_row = row
-            santa_col = col
-        elif matrix[row][col] == "V":
-            total_good_kids += 1
+        if matrix[row][col] == "A":
+            player_row = row
+            player_col = col
+        elif matrix[row][col] == "x":
+            targets += 1
 
-while True:
-    command = input()
-    if command == "Christmas morning":
-        break
-    matrix[santa_row][santa_col] = "-"
-    santa_row, santa_col = get_next_pos(santa_row, santa_col, command)
+commands = int(input())
+for _ in range(commands):
+    command = input().split()
 
-    if matrix[santa_row][santa_col] == "V":
-        presents -= 1
-        delivered_presents += 1
+    action = command[0]
+    direction = command[1]
 
-    elif matrix[santa_row][santa_col] == "C":
+    if action == "move":
+        steps = int(command[2])
+        player_row, player_col = move_func(player_row, player_col, matrix, steps, rows, direction)
+    else:
+        bullet_row = player_row
+        bullet_col = player_col
+        if direction == "right":
+            while bullet_col < rows - 1:
+                bullet_col += 1
+                if matrix[bullet_row][bullet_col] == "x":
+                    shot_targets.append([bullet_row, bullet_col])
+                    matrix[bullet_row][bullet_col] = "."
+                    targets -= 1
+                    break
 
-        if matrix[santa_row][santa_col - 1] == "V" and presents:
-            delivered_presents += 1
-            presents -= 1
-            matrix[santa_row][santa_col - 1] = "-"
-        elif matrix[santa_row][santa_col - 1] == "X" and presents:
-            presents -= 1
-            matrix[santa_row][santa_col - 1] = "-"
+        elif direction == "left":
+            while bullet_col > 0:
+                bullet_col -= 1
+                if matrix[bullet_row][bullet_col] == "x":
+                    shot_targets.append([bullet_row, bullet_col])
+                    matrix[bullet_row][bullet_col] = "."
+                    targets -= 1
+                    break
 
-        if matrix[santa_row][santa_col + 1] == "V" and presents:
-            delivered_presents += 1
-            presents -= 1
-            matrix[santa_row][santa_col + 1] = "-"
-        elif matrix[santa_row][santa_col + 1] == "X" and presents:
-            presents -= 1
-            matrix[santa_row][santa_col + 1] = "-"
+        elif direction == "down":
+            while bullet_row < rows - 1:
+                bullet_row += 1
+                if matrix[bullet_row][bullet_col] == "x":
+                    shot_targets.append([bullet_row, bullet_col])
+                    matrix[bullet_row][bullet_col] = "."
+                    targets -= 1
+                    break
 
-        if matrix[santa_row - 1][santa_col] == "V" and presents:
-            delivered_presents += 1
-            presents -= 1
-            matrix[santa_row - 1][santa_col] = "-"
+        else:
+            while bullet_row > 0:
+                bullet_row -= 1
+                if matrix[bullet_row][bullet_col] == "x":
+                    shot_targets.append([bullet_row, bullet_col])
+                    matrix[bullet_row][bullet_col] = "."
+                    targets -= 1
+                    break
 
-        elif matrix[santa_row - 1][santa_col] == "X" and presents:
-            presents -= 1
-            matrix[santa_row - 1][santa_col] = "-"
+            if targets == 0:
+                break
 
-        if matrix[santa_row + 1][santa_col] == "V" and presents:
-            delivered_presents += 1
-            presents -= 1
-            matrix[santa_row + 1][santa_col] = "-"
-        elif matrix[santa_row + 1][santa_col] == "X" and presents:
-            presents -= 1
-            matrix[santa_row + 1][santa_col] = "-"
-
-    matrix[santa_row][santa_col] = "S"
-
-    if presents == 0 or delivered_presents == total_good_kids:
-        break
-
-if presents == 0 and delivered_presents < total_good_kids:
-    print(f"Santa ran out of presents!")
-
-for row in matrix:
-    print(*row, sep=" ")
-
-if delivered_presents == total_good_kids:
-    print(f"Good job, Santa! {total_good_kids} happy nice kid/s.")
+if targets == 0:
+    print(f"Training completed! All {len(shot_targets)} targets hit.")
 else:
-    print(f"No presents for {total_good_kids - delivered_presents} nice kid/s.")
+    print(f"Training not completed! {targets} targets left.")
+
+if shot_targets:
+    for shot_target in shot_targets:
+        print(shot_target)

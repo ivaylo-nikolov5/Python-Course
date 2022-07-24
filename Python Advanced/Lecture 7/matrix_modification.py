@@ -1,24 +1,22 @@
+def is_inside(row: int, col: int, rows):
+    return 0 <= row < rows and 0 <= col < rows
+
+
 rows = int(input())
 
 matrix = [[int(x) for x in input().split()] for _ in range(rows)]
 
 command = input()
-
 while command != "END":
-    command = command.split()
-    action = command[0]
-    row = int(command[1])
-    col = int(command[2])
-    value = int(command[3])
-
+    action, row, col, value = command.split()
     if action == "Add":
-        if 0 <= row < rows and 0 <= col < rows:
-            matrix[row][col] += value
+        if is_inside(int(row), int(col), rows):
+            matrix[int(row)][int(col)] += int(value)
         else:
             print("Invalid coordinates")
-    elif action == "Subtract":
-        if 0 <= row < rows and 0 <= col < rows:
-            matrix[row][col] -= value
+    else:
+        if is_inside(int(row), int(col), rows):
+            matrix[int(row)][int(col)] -= int(value)
         else:
             print("Invalid coordinates")
 

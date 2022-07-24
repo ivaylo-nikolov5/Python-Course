@@ -1,103 +1,100 @@
-def right_func(row, col, matrix):
-    total = 0
-    moves = 0
+def right(row, col, matrix, rows):
+    steps = 0
+    current_sum = 0
     while col < rows - 1:
         col += 1
-        if matrix[row][col].isdigit():
-            total += int(matrix[row][col])
-            moves += 1
-        else:
-            return total, moves
 
-    return total, moves
+        if matrix[row][col] == "X":
+            return current_sum, steps
+        current_sum += int(matrix[row][col])
+        steps += 1
+    return current_sum, steps
 
 
-def left_func(row, col, matrix):
-    total = 0
-    moves = 0
+def left(row, col, matrix, rows):
+    steps = 0
+    current_sum = 0
     while col > 0:
         col -= 1
-        if matrix[row][col].isdigit():
-            total += int(matrix[row][col])
-            moves += 1
-        else:
-            return total, moves
 
-    return total, moves
-
-
-def up_func(row, col, matrix):
-    total = 0
-    moves = 0
-    while row > 0:
-        row -= 1
-        if matrix[row][col].isdigit():
-            total += int(matrix[row][col])
-            moves += 1
-        else:
-            return total, moves
-
-    return total, moves
+        if matrix[row][col] == "X":
+            return current_sum, steps
+        current_sum += int(matrix[row][col])
+        steps += 1
+    return current_sum, steps
 
 
-def down_func(row, col, matrix):
-    total = 0
-    moves = 0
+def down(row, col, matrix, rows):
+    steps = 0
+    current_sum = 0
     while row < rows - 1:
         row += 1
-        if matrix[row][col].isdigit():
-            total += int(matrix[row][col])
-            moves += 1
-        else:
-            return total, moves
 
-    return total, moves
+        if matrix[row][col] == "X":
+            return current_sum, steps
+        current_sum += int(matrix[row][col])
+        steps += 1
+    return current_sum, steps
+
+
+def up(row, col, matrix, rows):
+    steps = 0
+    current_sum = 0
+    while row > 0:
+        row -= 1
+
+        if matrix[row][col] == "X":
+            return current_sum, steps
+        current_sum += int(matrix[row][col])
+        steps += 1
+    return current_sum, steps
 
 
 rows = int(input())
 
-matrix = [[x for x in input().split()] for _ in range(rows)]
+matrix = []
+
 
 bunny_row = 0
 bunny_col = 0
 
 for row in range(rows):
+    matrix.append([x for x in input().split()])
     for col in range(rows):
         if matrix[row][col] == "B":
-            bunny_row, bunny_col = row, col
-            break
+            bunny_row = row
+            bunny_col = col
 
-right_sum, right_moves = right_func(bunny_row, bunny_col, matrix)
-left_sum, left_moves = left_func(bunny_row, bunny_col, matrix)
-up_sum, up_moves = up_func(bunny_row, bunny_col, matrix)
-down_sum, down_moves = down_func(bunny_row, bunny_col, matrix)
+right_sum, right_steps = right(bunny_row, bunny_col, matrix, rows)
+left_sum, left_steps = left(bunny_row, bunny_col, matrix, rows)
+down_sum, down_steps = down(bunny_row, bunny_col, matrix, rows)
+up_sum, up_steps = up(bunny_row, bunny_col, matrix, rows)
 
-max_sum = (max(right_sum, left_sum, up_sum, down_sum))
+max_sum = max(right_sum, left_sum, down_sum, up_sum)
 
-if right_sum == max_sum:
+if max_sum == right_sum:
     print("right")
-    for row in range(right_moves):
+    for step in range(right_steps):
         bunny_col += 1
         print(f"[{bunny_row}, {bunny_col}]")
-    print(right_sum)
 
-elif left_sum == max_sum:
+
+elif max_sum == left_sum:
     print("left")
-    for row in range(left_moves):
+    for step in range(left_steps):
         bunny_col -= 1
         print(f"[{bunny_row}, {bunny_col}]")
-    print(left_sum)
-elif down_sum == max_sum:
+
+elif max_sum == down_sum:
     print("down")
-    for row in range(down_moves):
+    for step in range(down_steps):
         bunny_row += 1
         print(f"[{bunny_row}, {bunny_col}]")
-    print(down_sum)
 
-elif up_sum == max_sum:
+else:
     print("up")
-    for row in range(up_moves):
+    for step in range(up_steps):
         bunny_row -= 1
         print(f"[{bunny_row}, {bunny_col}]")
-    print(up_sum)
 
+print(max_sum)
