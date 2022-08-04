@@ -1,9 +1,15 @@
+import time
+st = time.time()
+
+# ==================================================
+
+
 def fill_the_lines(text):
     result = []
     counter = 0
     for line in text.readlines():
         if counter % 2 == 0:
-            result.append(line[:-1])
+            result.append(line)
         counter += 1
 
     return result
@@ -49,3 +55,11 @@ try:
 
 except FileNotFoundError:
     print("Cannot find the searched file! :(")
+
+# Elapsed time =============================================
+
+et = time.time()
+
+elapsed_time = et - st
+
+print('Execution time:', elapsed_time, 'seconds')
