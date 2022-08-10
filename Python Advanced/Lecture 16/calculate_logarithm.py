@@ -1,10 +1,11 @@
 from math import log
 
 num = int(input())
-log_base = input()
-if log_base == "natural":
-    log_num = log(num)
-else:
-    log_num = log(num, int(log_base))
+base = input()
 
-print(f"{log_num:.2f}")
+if base == "natural":
+    res = log(num)
+else:
+    res = log(num, int(base))
+
+print(f"{res:.2f}")

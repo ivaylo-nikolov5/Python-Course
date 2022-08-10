@@ -1,11 +1,11 @@
-from math_operations.math_operations import simple_operations
+from math_operations.demo import operations_dict
 
-exp = input().split()
+expression = input().split()
 
-n = float(exp[0])
-operator = exp[1]
-m = float(exp[2])
+a = float(expression[0])
+operator = expression[1]
+b = float(expression[2])
 
-res = simple_operations[operator]
+result = operations_dict[operator](a, b)
 
-print(f"{res(n, m):.2f}")
+print(f"{float(result):.2f}")

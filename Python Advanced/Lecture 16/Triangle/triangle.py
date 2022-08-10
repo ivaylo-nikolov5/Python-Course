@@ -1,4 +1,4 @@
-from triangle_from_numbers.triangle_nums import print_triangle as pt
+from triangle_from_numbers.demo import print_triangle
 
 n = int(input())
-pt(n)
+print_triangle(n)

@@ -1,18 +1,18 @@
-from fibonacci_sequence.fibonacci_sequence import create_sequence, find_index
+from fibonacci_sequence.demo import create_sequence, locate_num
 
-command = input()
 sequence = []
+command = input()
 
 while command != "Stop":
     command = command.split()
     action = command[0]
 
     if action == "Create":
-        stop_num = int(command[2])
-        sequence = create_sequence(stop_num)
+        num = int(command[2])
+        sequence = create_sequence(num)
         print(*sequence, sep=" ")
     else:
-        searched_num = int(command[1])
-        print(find_index(sequence, searched_num))
+        num = int(command[1])
+        print(locate_num(sequence, num))
 
     command = input()
