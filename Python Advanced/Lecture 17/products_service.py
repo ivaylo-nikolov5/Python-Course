@@ -3,8 +3,9 @@ from auth_service import get_current_user
 
 PRODUCTS_PATH_FILE = "./db/products.txt"
 
+
 def get_all_products():
-    with open("./db/products.txt", "r") as file:
+    with open(PRODUCTS_PATH_FILE, "r") as file:
         return [json.loads(x.strip()) for x in file]
 
 
