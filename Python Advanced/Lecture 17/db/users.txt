@@ -1,0 +1,6 @@
+{"username": "inikolov", "email": "nikolov@gmail.com", "password": "password"}
+{"username": "inikolov2", "email": "inikolov@gmail.com", "password": "password"}
+{"username": "inikolov3", "email": "inikolov3@gmail.com", "password": "pass"}
+{"username": "inikolov4", "email": "inikolov3@gmail.com", "password": "pass"}
+{"username": "username", "email": "email@gmail.com", "password": "password"}
+{"username": "admin", "email": "admin@gmail.com", "password": "admin"}
