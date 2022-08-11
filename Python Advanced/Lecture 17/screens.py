@@ -1,6 +1,7 @@
 import tkinter as tk
 from auth_service import register, login
-from products_service import get_all_products
+from products_service import get_all_products, buy_product
+from users_service import purchase_product
 from PIL import Image, ImageTk
 
 
@@ -32,10 +33,16 @@ def render_products_screen(window):
     products = get_all_products()
     column = 0
     row = 0
+
+    def on_buy(product_id):
+        purchase_product(product_id)
+        buy_product(product_id)
+
     for product in products:
         if column == 3:
             row += 5
             column = 0
+
 
         tk.Label(window, text=product["name"]).grid(row=row, column=column)
 
@@ -48,7 +55,7 @@ def render_products_screen(window):
 
         tk.Label(window, text=f"Price: {product['price']}").grid(row=row + 2, column=column)
         tk.Label(window, text=f"Count: {product['count']}").grid(row=row + 3, column=column)
-        tk.Button(window, text="Buy").grid(row=row + 4, column=column)
+        tk.Button(window, text="Buy", command=lambda x=product["id"]:on_buy(x)).grid(row=row + 4, column=column)
 
         column += 1
 

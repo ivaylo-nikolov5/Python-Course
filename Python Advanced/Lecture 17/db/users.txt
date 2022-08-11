@@ -1,1 +1,1 @@
-{"username": "admin", "email": "admin@gmail.com", "password": "admin", "products": []}
+{"username": "admin", "email": "admin@gmail.com", "password": "admin", "products": [1, 1]}
