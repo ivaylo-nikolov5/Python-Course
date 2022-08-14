@@ -44,10 +44,7 @@ for row in range(matrix_size):
     matrix.append([x for x in input()])
     for col in range(matrix_size):
         if matrix[row][col] == "S":
-            snake_row = row
-            snake_col = col
-
-matrix[snake_row][snake_col] = "."
+            snake_row, snake_col = row, col
 
 while True:
     command = input()
@@ -77,7 +74,6 @@ while True:
     if eaten_food == 10:
         won = True
         break
-
 
 if not won:
     print("Game over!")
