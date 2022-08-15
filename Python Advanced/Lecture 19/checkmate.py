@@ -87,7 +87,7 @@ def check_left_down(row, col, ma):
     return False
 
 
-def check_capture(row, col, ma, size, queens: list):
+def check_capture(row, col, ma, queens: list):
     # check left
     if check_left(row, col, ma):
         queens.append(check_left(row, col, ma))
@@ -133,7 +133,7 @@ for row in range(board_size):
         continue
     king_row, king_col = row, matrix[row].index("K")
 
-queens = check_capture(king_row, king_col, matrix, board_size, queens)
+queens = check_capture(king_row, king_col, matrix, queens)
 
 if queens:
     for queen in queens:
