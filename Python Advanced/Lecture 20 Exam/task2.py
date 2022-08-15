@@ -2,6 +2,10 @@ def is_inside(r, c, ma):
     return 0 <= r < len(ma) and 0 <= c < len(ma)
 
 
+def is_valid_for_attack(r, c, ma):
+    return 0 < r < len(ma) - 1 and 0 < c < len(ma) - 1
+
+
 def check_diagonals_white(r, c, ma):
     over = False
     if ma[r - 1][c - 1] != "-":
@@ -49,28 +53,33 @@ while True:
     player = "White pawn" if counter % 2 == 0 else "Black pawn"
     row = players[player][0]
     col = players[player][1]
-    if player == "White pawn" and row > 0 and 0 < col < len(matrix) and check_diagonals_white(players[player][0], players[player][1], matrix)[0]:
-        col = check_diagonals_white(players[player][0], players[player][1], matrix)[1]
-        print(f"Game over! {player.split()[0]} win, capture on {chr(97 + col)}{8}.")
-        break
-    elif player == "Black pawn" and 0 < row < len(matrix) and 0 < col < len(matrix) and check_diagonals_black(players[player][0], players[player][1], matrix)[0]:
-        col = check_diagonals_black(players[player][0], players[player][1], matrix)[1]
-        print(f"Game over! {player.split()[0]} win, capture on {chr(97 + col)}{1}.")
-        break
-    else:
-        if player == "White pawn":
+
+    if player == "White pawn":
+        if is_valid_for_attack(row, col, matrix) and check_diagonals_white(players[player][0], players[player][1], matrix)[0]:
+            col = check_diagonals_white(players[player][0], players[player][1], matrix)[1]
+            print(f"Game over! {player.split()[0]} win, capture on {chr(97 + col)}{8 - row + 1}.")
+            break
+        else:
             if is_inside(row - 1, col, matrix):
+                matrix[players[player][0]][players[player][1]] = "-"
                 players[player][0] -= 1
+                matrix[players[player][0]][players[player][1]] = "w"
             else:
-                print(f"Game over! {player} is promoted to a queen at {chr(97 + col)}{8 - row}.")
+                print(f"Game over! {player} is promoted to a queen at {chr(97 + col)}{8}.")
                 break
+    else:
+        if is_valid_for_attack(row, col, matrix) and check_diagonals_black(players[player][0], players[player][1], matrix)[0]:
+            col = check_diagonals_black(players[player][0], players[player][1], matrix)[1]
+            print(f"Game over! {player.split()[0]} win, capture on {chr(97 + col)}{8 - row - 1}.")
+            break
         else:
             if is_inside(row + 1, col, matrix):
+                matrix[players[player][0]][players[player][1]] = "-"
                 players[player][0] += 1
+                matrix[players[player][0]][players[player][1]] = "b"
             else:
-                print(f"Game over! {player} is promoted to a queen at {chr(97 + col)}{row + 1}.")
+                print(f"Game over! {player} is promoted to a queen at {chr(97 + col)}{1}.")
                 break
-
 
 
     counter += 1

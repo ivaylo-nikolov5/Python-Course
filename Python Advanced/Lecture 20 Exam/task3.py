@@ -9,12 +9,12 @@ def start_spring(**kwargs):
     objects = dict(sorted(objects.items(), key=lambda x:(-len(x[1]), x[0])))
 
     for type_, object in objects.items():
-        result += f"{type_}: \n"
+        result += f"{type_}:\n"
         object = sorted(object)
         for obj in object:
             result += f"-{obj}\n"
 
-    return result
+    return result.strip()
 
 example_objects = {"Swallow": "bird",
                    "Thrushes": "bird",
