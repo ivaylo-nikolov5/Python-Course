@@ -2,11 +2,10 @@ x = "global"
 
 
 def outer():
-    global x
     x = "local"
 
     def inner():
-        global x
+        nonlocal x
         x = "nonlocal"
         print("inner:", x)
 
