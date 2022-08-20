@@ -5,7 +5,7 @@ class Glass:
         self.content = 0
 
     def fill(self, ml):
-        free_space = self.capacity - self.content
+        free_space = Glass.capacity - self.content
         if not free_space >= ml:
             return f"Cannot add {ml} ml"
         self.content += ml
@@ -16,7 +16,7 @@ class Glass:
         return "Glass is now empty"
 
     def info(self):
-        free_space = self.capacity - self.content
+        free_space = Glass.capacity - self.content
         return f"{free_space} ml left"
 
 
