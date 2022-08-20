@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e5a0c79-cf1d-433f-a940-976b01c5268a" name="Changes" comment="Resolving the problems">
-      <change afterPath="$PROJECT_DIR$/demo/pokemon.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flower.py" beforeDir="false" afterPath="$PROJECT_DIR$/flower.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/steam_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/steam_user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +36,8 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Bullet/Desktop/Python-Course/Python OOP/Lecture 3"
   }
 }]]></component>
   <component name="RunManager" selected="Python.trainer">
@@ -103,7 +101,8 @@
       <option name="presentableId" value="Default" />
       <updated>1660896688097</updated>
       <workItem from="1660896689711" duration="3858000" />
-      <workItem from="1660906023201" duration="4371000" />
+      <workItem from="1660906023201" duration="4487000" />
+      <workItem from="1660978222055" duration="40000" />
     </task>
     <task id="LOCAL-00001" summary="Resolving the problems">
       <created>1660897973152</created>
@@ -112,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660897973152</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Resolving the problems">
+      <created>1660912418949</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660912418949</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -136,6 +142,6 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Lecture_2$demo.coverage" NAME="demo Coverage Results" MODIFIED="1660910888586" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Lecture_2$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1660912366848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo" />
+    <SUITE FILE_PATH="coverage/Lecture_2$trainer.coverage" NAME="trainer Coverage Results" MODIFIED="1660912386326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/demo" />
   </component>
 </project>
