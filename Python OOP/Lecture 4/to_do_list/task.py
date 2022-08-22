@@ -1,3 +1,5 @@
+# Change "to_do_list" name to "guild_system" in order the program to work in judge
+
 class Task:
     def __init__(self, name, due_date):
         self.name = name

@@ -1,4 +1,4 @@
-from project.task import Task
+from to_do_list.task import Task
 
 
 class Section:
