@@ -9,14 +9,12 @@ class Time:
         self.seconds = seconds
 
     def set_time(self, hours, minutes, seconds):
-        self.hours, self.minutes, self.seconds = hours, minutes, seconds
+        self.hours = hours
+        self.minutes = minutes
+        self.seconds = seconds
 
     def get_time(self):
-        hh = f"{f'0{self.hours}' if self.hours < 10 else self.hours}"
-        mm = f"{f'0{self.minutes}' if self.minutes < 10 else self.minutes}"
-        ss = f"{f'0{self.seconds}' if self.seconds < 10 else self.seconds}"
-
-        return f"{hh}:{mm}:{ss}"
+        return f"{self.hours:02d}:{self.minutes:02d}:{self.seconds:02d}"
 
     def next_second(self):
         self.seconds += 1
@@ -29,10 +27,8 @@ class Time:
                 if self.hours > Time.max_hours:
                     self.hours = 0
 
-        return self.get_time()
+        return Time.get_time(self)
 
 
-time = Time(13, 4, 56)
+time = Time(23, 59, 59)
 print(time.next_second())
-
-
