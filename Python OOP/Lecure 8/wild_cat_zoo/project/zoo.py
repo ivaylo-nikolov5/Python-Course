@@ -1,11 +1,3 @@
-from project.lion import Lion
-from project.tiger import Tiger
-from project.cheetah import Cheetah
-from project.keeper import Keeper
-from project.caretaker import Caretaker
-from project.vet import Vet
-
-
 class Zoo:
     def __init__(self, name, budget, animal_capacity, workers_capacity):
         self.name = name
@@ -84,7 +76,33 @@ class Zoo:
         result += f"\n----- {len(cheetahs)} Cheetahs:"
 
         for cheetah in cheetahs:
-            result += f"\n{cheetah}"
+            result += f"\n{cheetah.__repr__()}"
 
     def workers_status(self):
-        pass
+        result = f"You have {len(self.workers)} animals"
+        keepers = []
+        caretakers = []
+        vets = []
+        for worker in self.workers:
+            if worker.__class__.__name__ == "Keeper":
+                keepers.append(worker.__repr__())
+            elif worker.__class__.__name__ == "Caretaker":
+                caretakers.append(worker.__repr__())
+            else:
+                vets.append(worker.__repr__())
+
+        result += f"\n----- {len(keepers)} Keepers:"
+
+        for keeper in keepers:
+            result += f"\n{keeper}"
+
+        result += f"\n----- {len(caretakers)} Caretakers:"
+
+        for caretaker in caretakers:
+            result += f"\n{caretaker}"
+
+        result += f"\n----- {len(vets)} Vets:"
+
+        for vet in vets:
+            result += f"\n{vet}"
+
