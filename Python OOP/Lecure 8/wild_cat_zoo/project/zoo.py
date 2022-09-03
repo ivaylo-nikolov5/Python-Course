@@ -59,7 +59,32 @@ class Zoo:
         self.__budget += amount
 
     def animals_status(self):
-        pass
+        result = f"You have {len(self.animals)} animals"
+        lions = []
+        tigers = []
+        cheetahs = []
+        for animal in self.animals:
+            if animal.__class__.__name__ == "Lion":
+                lions.append(animal.__repr__())
+            elif animal.__class__.__name__ == "Tiger":
+                tigers.append(animal.__repr__())
+            else:
+                cheetahs.append(animal.__repr__())
+
+        result += f"\n----- {len(lions)} Lions:"
+
+        for lion in lions:
+            result += f"\n{lion}"
+
+        result += f"\n----- {len(tigers)} Tigers:"
+
+        for tiger in tigers:
+            result += f"\n{tiger}"
+
+        result += f"\n----- {len(cheetahs)} Cheetahs:"
+
+        for cheetah in cheetahs:
+            result += f"\n{cheetah}"
 
     def workers_status(self):
         pass
