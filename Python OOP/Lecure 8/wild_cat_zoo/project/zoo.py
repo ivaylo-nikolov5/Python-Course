@@ -46,7 +46,14 @@ class Zoo:
         return f"You payed your workers. They are happy. Budget left: {self.__budget}"
 
     def tend_animals(self):
-        pass
+        to_tend = 0
+        for animal in self.animals:
+            to_tend += animal.money_for_care
+
+        if to_tend > self.__budget:
+            return f"You have no budget to tend the animals. They are unhappy."
+        self.__budget -= to_tend
+        return f"You tended all the animals. They are happy. Budget left: {self.__budget}"
 
     def profit(self, amount):
         pass
