@@ -56,7 +56,7 @@ class Zoo:
         return f"You tended all the animals. They are happy. Budget left: {self.__budget}"
 
     def profit(self, amount):
-        pass
+        self.__budget += amount
 
     def animals_status(self):
         pass
