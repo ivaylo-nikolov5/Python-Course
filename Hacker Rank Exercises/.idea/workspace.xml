@@ -1,39 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2436afb-2c59-442d-a620-d46924f37079" name="Changes" comment="Added a solution for the Welcome Carpet problem">
-      <change afterPath="$PROJECT_DIR$/itertools.py" afterDir="false" />
+    <list default="true" id="c2436afb-2c59-442d-a620-d46924f37079" name="Changes" comment="Solved Permutations">
+      <change afterPath="$PROJECT_DIR$/permutations1.1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/.idea/Hacker Rank Exercises.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/arithmetic_operators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/capitalize.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/demo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/division.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/find_a_string.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/find_the_runner_up_score.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/finding_the_percentage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/leap_year.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/list_comprehensions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/lists.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/loops.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/mutations.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/nested_lists.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/no_idea.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/print_full_name.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/print_function.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/string_formatting.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/string_split_and_join.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/string_validators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/swap_case.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/text_wrap.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/tuples.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hacker Rank Exercises/weird_or_not.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Python OOP/Lecure 8/.idea/Lecure 8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Python OOP/Lecure 8/.idea/Lecure 8.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,8 +39,8 @@
     "last_opened_file_path": "C:/Users/Bullet/Desktop/Python-Course/Hacker Rank Exercises"
   }
 }]]></component>
-  <component name="RunManager">
-    <configuration name="itertools" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.permutations1.1">
+    <configuration name="permutations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Hacker Rank Exercises" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -83,7 +53,29 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/itertools.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Bullet\Desktop\Python-Course\Hacker Rank Exercises\permutations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="permutations1.1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Hacker Rank Exercises" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/permutations1.1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -94,7 +86,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.itertools" />
+        <item itemvalue="Python.permutations1.1" />
+        <item itemvalue="Python.permutations" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +100,7 @@
       <option name="presentableId" value="Default" />
       <updated>1661073954094</updated>
       <workItem from="1661073955180" duration="67000" />
-      <workItem from="1662389022257" duration="664000" />
+      <workItem from="1662389022257" duration="1279000" />
     </task>
     <task id="LOCAL-00001" summary="Added a solution for the Welcome Carpet problem">
       <created>1661074004916</created>
@@ -116,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661074004916</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Solved Permutations">
+      <created>1662389918889</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662389918889</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -135,13 +135,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added a solution for the Welcome Carpet problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added a solution for the Welcome Carpet problem" />
+    <MESSAGE value="Solved Permutations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved Permutations" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/itertools.py</url>
+          <url>file://$PROJECT_DIR$/permutations.py</url>
           <line>2</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
@@ -149,6 +150,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Hacker_Rank_Exercises$itertools.coverage" NAME="itertools Coverage Results" MODIFIED="1662389690607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Hacker_Rank_Exercises$itertools.coverage" NAME="itertools Coverage Results" MODIFIED="1662389793467" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Hacker_Rank_Exercises$permutations1_1.coverage" NAME="permutations1.1 Coverage Results" MODIFIED="1662390262530" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
