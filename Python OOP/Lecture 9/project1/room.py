@@ -6,13 +6,15 @@ class Room:
         self.is_taken = False
 
     def take_room(self, people):
-        if not self.is_taken or self.capacity < people:
+        if not self.is_taken and people <= self.capacity:
+            self.is_taken = True
+            self.guests = people
+        else:
             return f"Room number {self.number} cannot be taken"
-        self.is_taken = True
-        self.guests = people
 
     def free_room(self):
         if self.is_taken:
+            self.guests = 0
+            self.is_taken = False
+        else:
             return f"Room number {self.number} is not taken"
-        self.is_taken = False
-        self.guests = 0

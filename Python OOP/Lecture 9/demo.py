@@ -1,40 +1,19 @@
-class Integer:
-    def __init__(self, value):
-        self.value = value
+from project.hotel import Hotel
+from project.room import Room
 
-    @classmethod
-    def from_float(cls, float_value):
-        if not isinstance(float_value, float):
-            return "value is not a float"
-        return cls(int(float_value))
+hotel = Hotel.from_stars(5)
 
-    @classmethod
-    def from_roman(cls, value):
-        roman_numerals = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        result = 0
-        for i, c in enumerate(value):
-            if (i + 1) == len(value) or roman_numerals[c] >= roman_numerals[value[i + 1]]:
-                result += roman_numerals[c]
-            else:
-                result -= roman_numerals[c]
+first_room = Room(1, 3)
+second_room = Room(2, 2)
+third_room = Room(3, 1)
 
-        return cls(result)
+hotel.add_room(first_room)
+hotel.add_room(second_room)
+hotel.add_room(third_room)
 
-    @classmethod
-    def from_string(cls, value):
-        if not isinstance(value, str):
-            return "wrong type"
-        try:
-            return cls(int(value))
-        except ValueError:
-            return "wrong type"
+hotel.take_room(1, 4)
+hotel.take_room(1, 2)
+hotel.take_room(3, 1)
+hotel.take_room(3, 1)
 
-
-first_num = Integer(10)
-print(first_num.value)
-
-second_num = Integer.from_roman("IV")
-print(second_num.value)
-
-print(Integer.from_float("2.6"))
-print(Integer.from_string(2.6))
+print(hotel.status())
