@@ -1,19 +1,28 @@
-from project.hotel import Hotel
-from project.room import Room
+from functools import reduce
 
-hotel = Hotel.from_stars(5)
 
-first_room = Room(1, 3)
-second_room = Room(2, 2)
-third_room = Room(3, 1)
+class Calculator:
+    def __init__(self):
+        pass
 
-hotel.add_room(first_room)
-hotel.add_room(second_room)
-hotel.add_room(third_room)
+    @staticmethod
+    def add(*args):
+        return reduce(lambda x, y: x + y, args)
 
-hotel.take_room(1, 4)
-hotel.take_room(1, 2)
-hotel.take_room(3, 1)
-hotel.take_room(3, 1)
+    @staticmethod
+    def multiply(*args):
+        return reduce(lambda x, y: x * y, args)
 
-print(hotel.status())
+    @staticmethod
+    def divide(*args):
+        return reduce(lambda x, y: x / y, args)
+
+    @staticmethod
+    def subtract(*args):
+        return reduce(lambda x, y: x - y, args)
+
+
+print(Calculator.add(5, 10, 4))
+print(Calculator.multiply(1, 2, 3, 5))
+print(Calculator.divide(100, 2))
+print(Calculator.subtract(90, 20, -50, 43, 7))
