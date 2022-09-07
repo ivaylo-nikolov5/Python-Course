@@ -1,42 +1,40 @@
-class Shop:
-    def __init__(self, name, type, capacity):
-        self.name = name
-        self.type = type
-        self.capacity = capacity
-        self.items = {}
+class Integer:
+    def __init__(self, value):
+        self.value = value
 
     @classmethod
-    def small_shop(cls, name: str, type: str):
-        return cls(name, type, 10)
+    def from_float(cls, float_value):
+        if not isinstance(float_value, float):
+            return "value is not a float"
+        return cls(int(float_value))
 
-    def add_item(self, item_name: str):
-        if sum(self.items.values()) == self.capacity:
-            return "Not enough capacity in the shop"
-        elif item_name not in self.items:
-            self.items[item_name] = 0
-        self.items[item_name] += 1
-        return f"{item_name} added to the shop"
+    @classmethod
+    def from_roman(cls, value):
+        roman_numerals = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        result = 0
+        for i, c in enumerate(value):
+            if (i + 1) == len(value) or roman_numerals[c] >= roman_numerals[value[i + 1]]:
+                result += roman_numerals[c]
+            else:
+                result -= roman_numerals[c]
 
-    def remove_item(self, item_name: str, amount: int):
-        if item_name not in self.items or amount > self.items[item_name]:
-            return f"Cannot remove {amount} {item_name}"
-        self.items[item_name] -= amount
-        if self.items[item_name] == 0:
-            del self.items[item_name]
-        return f"{amount} {item_name} removed from the shop"
+        return cls(result)
 
-    def __repr__(self):
-        return f"{self.name} of type {self.type} with capacity {self.capacity}"
+    @classmethod
+    def from_string(cls, value):
+        if not isinstance(value, str):
+            return "wrong type"
+        try:
+            return cls(int(value))
+        except ValueError:
+            return "wrong type"
 
 
-fresh_shop = Shop("Fresh Shop", "Fruit and Veg", 50)
-small_shop = Shop.small_shop("Fashion Boutique", "Clothes")
-print(fresh_shop)
-print(small_shop)
+first_num = Integer(10)
+print(first_num.value)
 
-print(fresh_shop.add_item("Bananas"))
-print(fresh_shop.remove_item("Tomatoes", 2))
+second_num = Integer.from_roman("IV")
+print(second_num.value)
 
-print(small_shop.add_item("Jeans"))
-print(small_shop.add_item("Jeans"))
-print(small_shop.remove_item("Jeans", 2))
+print(Integer.from_float("2.6"))
+print(Integer.from_string(2.6))
