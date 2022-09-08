@@ -1,14 +1,21 @@
-from project.customer import Customer
-from project.dvd import DVD
-from project.movie_world import MovieWorld
+from project.category import Category
+from project.document import Document
+from project.storage import Storage
+from project.topic import Topic
 
-from project.customer import Customer
-from project.dvd import DVD
-from project.movie_world import MovieWorld
+c1 = Category(1, "work")
+t1 = Topic(1, "daily tasks", "C:\\work_documents")
+d1 = Document(1, 1, 1, "finalize project")
 
-import unittest
+d1.add_tag("urgent")
+d1.add_tag("work")
 
-class TestsMovieWorld(unittest.TestCase):
-    def test_dvd_class_method(self):
-        dvd = DVD.from_date(1, "A", "16.10.1997", 18)
-        self.assertEqual(dvd.creation_year, 1997)
+storage = Storage()
+storage.add_category(c1)
+storage.add_topic(t1)
+storage.add_document(d1)
+
+print(c1)
+print(t1)
+print(storage.get_document(1))
+print(storage)
