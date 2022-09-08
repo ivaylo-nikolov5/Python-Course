@@ -1,5 +1,6 @@
 from math import ceil
 
+
 class PhotoAlbum:
     def __init__(self, pages):
         self.pages = pages
