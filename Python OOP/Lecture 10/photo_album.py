@@ -1,39 +1,26 @@
 from math import ceil
 
-
 class PhotoAlbum:
     def __init__(self, pages):
         self.pages = pages
-        self.photos = []
-        for x in range(pages):
-            self.photos.append([])
+        self.photos = [[] for _ in range(self.pages)]
 
     @classmethod
     def from_photos_count(cls, photos_count: int):
-        pages = ceil(photos_count / 4)
-        return cls(pages)
+        return cls(ceil(photos_count / 4))
 
     def add_photo(self, label: str):
         for page in range(len(self.photos)):
             if len(self.photos[page]) < 4:
                 self.photos[page].append(label)
-                return f"{label} photo added successfully on page {page + 1} slot {self.photos[page].index(label) + 1}"
-        return f"No more free slots"
+                return f"{label} photo added successfully on page {page + 1} slot {len(self.photos[page])}"
+        return "No more free slots"
 
     def display(self):
-        result = "-----------\n"
-        for page in self.photos:
-            if page:
-                result += f"{'[] '* len(page)}".strip()
-                result += "\n-----------\n"
-            else:
-                result += "\n-----------\n"
+        separator = f"{'-' * 11}\n"
+        result = separator
+        for page in range(len(self.photos)):
+            result += f"\n{'[] ' * len(self.photos[page])}".strip()
+            result += "\n" + separator
+
         return result
-
-album = PhotoAlbum(5)
-for _ in range(12):
-    album.add_photo("asdf")
-result = album.display().strip()
-print(result)
-
-print("\n-----------\n[] [] [] []\n-----------\n[] [] [] []\n-----------\n\n-----------")
