@@ -1,38 +1,23 @@
-from math import ceil
+from project.customer import Customer
+from project.dvd import DVD
+from project.movie_world import MovieWorld
 
-class PhotoAlbum:
-    def __init__(self, pages):
-        self.pages = pages
-        self.photos = [[] for _ in range(self.pages)]
+c1 = Customer("John", 16, 1)
+c2 = Customer("Anna", 55, 2)
 
-    @classmethod
-    def from_photos_count(cls, photos_count: int):
-        return cls(ceil(photos_count / 4))
+d1 = DVD("Black Widow", 1, 2020, "April", 18)
+d2 = DVD.from_date(2, "The Croods 2", "23.12.2020", 3)
 
-    def add_photo(self, label: str):
-        for page in range(len(self.photos)):
-            if len(self.photos[page]) < 4:
-                self.photos[page].append(label)
-                return f"{label} photo added successfully on page {page + 1} slot {len(self.photos[page])}"
-        return "No more free slots"
+movie_world = MovieWorld("The Best Movie Shop")
 
-    def display(self):
-        separator = f"{'-' * 11}\n"
-        result = separator
-        for page in range(len(self.photos)):
-            result += f"\n{'[] ' * len(self.photos[page])}".strip()
-            result += "\n" + separator
+movie_world.add_customer(c1)
+movie_world.add_customer(c2)
 
-        return result
+movie_world.add_dvd(d1)
+movie_world.add_dvd(d2)
 
-album = PhotoAlbum(4)
+print(movie_world.rent_dvd(1, 1))
+print(movie_world.rent_dvd(2, 1))
+print(movie_world.rent_dvd(1, 2))
 
-print(album.add_photo("baby"))
-print(album.add_photo("first grade"))
-print(album.add_photo("eight grade"))
-print(album.add_photo("party with friends"))
-print(album.photos)
-print(album.add_photo("prom"))
-print(album.add_photo("wedding"))
-
-print(album.display())
+print(movie_world)
