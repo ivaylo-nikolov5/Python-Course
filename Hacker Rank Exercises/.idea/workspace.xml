@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c2436afb-2c59-442d-a620-d46924f37079" name="Changes" comment="Solved Permutations1.1">
-      <change afterPath="$PROJECT_DIR$/counter.py" afterDir="false" />
+    <list default="true" id="c2436afb-2c59-442d-a620-d46924f37079" name="Changes" comment="Solved Counter">
+      <change afterPath="$PROJECT_DIR$/default_dict.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +36,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Bullet/Desktop/Python-Course/Hacker Rank Exercises"
+    "last_opened_file_path": "C:/Users/Bullet/Desktop/Python-Course/Python OOP/Lecture 11"
   }
 }]]></component>
   <component name="RunManager" selected="Python.counter">
@@ -124,7 +124,7 @@
       <updated>1661073954094</updated>
       <workItem from="1661073955180" duration="67000" />
       <workItem from="1662389022257" duration="1844000" />
-      <workItem from="1662704099970" duration="2247000" />
+      <workItem from="1662704099970" duration="3316000" />
     </task>
     <task id="LOCAL-00001" summary="Added a solution for the Welcome Carpet problem">
       <created>1661074004916</created>
@@ -147,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1662390363209</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Solved Counter">
+      <created>1662714040180</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662714040180</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +175,8 @@
     <MESSAGE value="Added a solution for the Welcome Carpet problem" />
     <MESSAGE value="Solved Permutations" />
     <MESSAGE value="Solved Permutations1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solved Permutations1.1" />
+    <MESSAGE value="Solved Counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solved Counter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
