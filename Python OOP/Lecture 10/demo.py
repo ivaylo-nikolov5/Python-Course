@@ -1,22 +1,24 @@
-from project.category import Category
-from project.document import Document
-from project.storage import Storage
-from project.topic import Topic
+from gym.project import Customer
+from gym.project import Equipment
+from gym.project.exercise_plan import ExercisePlan
+from gym.project import Gym
+from gym.project import Subscription
+from gym.project.trainer import Trainer
 
-c1 = Category(1, "work")
-t1 = Topic(1, "daily tasks", "C:\\work_documents")
-d1 = Document(1, 1, 1, "finilize project")
+customer = Customer("John", "Maple Street", "john.smith@gmail.com")
+equipment = Equipment("Treadmill")
+trainer = Trainer("Peter")
+subscription = Subscription("14.05.2020", 1, 1, 1)
+plan = ExercisePlan(1, 1, 20)
 
-d1.add_tag("urgent")
-d1.add_tag("work")
+gym = Gym()
 
-storage = Storage()
-storage.add_category(c1)
-storage.add_topic(t1)
-storage.add_document(d1)
+gym.add_customer(customer)
+gym.add_equipment(equipment)
+gym.add_trainer(trainer)
+gym.add_plan(plan)
+gym.add_subscription(subscription)
 
-print(c1)
-print(t1)
-print(storage.get_document(1))
-print(storage)
+print(Customer.get_next_id())
 
+print(gym.subscription_info(1))

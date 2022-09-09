@@ -1,8 +1,8 @@
-from project.customer import Customer
-from project.equipment import Equipment
-from project.exercise_plan import ExercisePlan
-from project.subscription import Subscription
-from project.trainer import Trainer
+from gym.project.customer import Customer
+from gym.project.equipment import Equipment
+from gym.project.exercise_plan import ExercisePlan
+from gym.project.subscription import Subscription
+from gym.project.trainer import Trainer
 
 
 class Gym:
@@ -35,21 +35,23 @@ class Gym:
 
     def subscription_info(self, subscription_id: int):
         result = ""
-        subscription = self.__find_entity_by_id(self.subscriptions, subscription_id)
-        customer = self.__find_entity_by_id(self.customers, subscription.customer_id)
-        trainer = self.__find_entity_by_id(self.trainers, subscription.trainer_id)
-        plan = self.__find_entity_by_id(self.plans, subscription.exercise_id)
-        equipment = self.__find_entity_by_id(self.equipment, plan.equipment_id)
+        subscription = self.__find_entity(subscription_id, self.subscriptions)
+        customer = self.__find_entity(subscription.customer_id, self.customers)
+        trainer = self.__find_entity(subscription.trainer_id, self.trainers)
+        equipment = self.__find_entity(subscription.exercise_id, self.equipment)
+        plan = self.__find_entity(equipment.id, self.plans)
 
-        result += f"\n{repr(subscription)}"
-        result += f"\n{repr(customer)}"
-        result += f"\n{repr(trainer)}"
-        result += f"\n{repr(plan)}"
-        result += f"\n{repr(equipment)}"
+        result += f"{repr(subscription)}\n" \
+                  f"{repr(customer)}\n" \
+                  f"{repr(trainer)}\n" \
+                  f"{repr(equipment)}\n" \
+                  f"{repr(plan)}"
 
         return result
 
-    def __find_entity_by_id(self, collection, entity_id):
-        for entity in collection:
+    @staticmethod
+    def __find_entity(entity_id, entities):
+        for entity in entities:
             if entity.id == entity_id:
                 return entity
+
