@@ -1,47 +1,88 @@
-class Person:
-    def __init__(self, name, surname):
-        self.name = name
-        self.surname = surname
+class Account:
+    def __init__(self, owner, amount=0):
+        self.owner = owner
+        self.amount = amount
+        self._transactions = []
+
+    def add_transaction(self, amount):
+        if not isinstance(amount, int):
+            raise ValueError("please use int for amount")
+        self._transactions.append(amount)
+
+    @property
+    def balance(self):
+        return self.amount + sum(self._transactions)
+
+    def validate_transaction(self, account, amount_to_add):
+        new_balance = account.balance + amount_to_add
+
+        if new_balance < 0:
+            raise ValueError("sorry cannot go in debt!")
+        account.add_transaction(amount_to_add)
+        return f"New balance: {account.balance}"
 
     def __str__(self):
-        return f"{self.name} {self.surname}"
-
-    def __add__(self, other):
-        return Person(self.name, other.surname)
-
-
-class Group:
-    def __init__(self, name, people):
-        self.name = name
-        self.people = people
-
-    def __len__(self):
-        return len(self.people)
-
-    def __add__(self, other):
-        name = f"{self.name} {other.name}"
-        return Group(name, self.people + other.people)
+        return f"Account of {self.owner} with starting amount: {self.amount}"
 
     def __repr__(self):
-        return f"Group {self.name} with members {', '.join(str(p) for p in self.people)}"
+        return f"Account({self.owner}, {self.amount})"
+
+    def __len__(self):
+        return len(self._transactions)
 
     def __getitem__(self, idx):
-        return f"Person {idx}: {self.people[idx]}"
+        return self._transactions[idx]
+
+    def __reversed__(self):
+        return self._transactions[::-1]
+
+    def __gt__(self, other):
+        return self.balance > other.balance
+
+    def __ge__(self, other):
+        return self.balance >= other.balance
+
+    def __eq__(self, other):
+        return self.balance == other.balance
 
 
-p0 = Person('Aliko', 'Dangote')
-p1 = Person('Bill', 'Gates')
-p2 = Person('Warren', 'Buffet')
-p3 = Person('Elon', 'Musk')
-p4 = p2 + p3
+    def __add__(self, other):
+        name = f"{self.owner}&{other.owner}"
+        starting_amount = self.amount + other.amount
+        result = Account(name, starting_amount)
 
-first_group = Group('__VIP__', [p0, p1, p2])
-second_group = Group('Special', [p3, p4])
-third_group = first_group + second_group
+        for tr in self:
+            result.add_transaction(tr)
 
-print(len(first_group))
-print(second_group)
-print(third_group[0])
+        for tr in other:
+            result.add_transaction(tr)
 
-for person in third_group:
-    print(person)
+        return result
+
+
+acc = Account('bob', 10)
+acc2 = Account('john')
+print(acc)
+print(repr(acc))
+acc.add_transaction(20)
+acc.add_transaction(-20)
+acc.add_transaction(30)
+print(acc.balance)
+print(len(acc))
+for transaction in acc:
+    print(transaction)
+print(acc[1])
+print(list(reversed(acc)))
+acc2.add_transaction(10)
+acc2.add_transaction(60)
+print(acc > acc2)
+print(acc >= acc2)
+print(acc < acc2)
+print(acc <= acc2)
+print(acc == acc2)
+print(acc != acc2)
+acc3 = acc + acc2
+print(acc3)
+print(acc3._transactions)
+
+
