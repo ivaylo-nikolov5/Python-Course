@@ -1,50 +1,47 @@
-from abc import ABC, abstractmethod
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def __str__(self):
+        return f"{self.name} {self.surname}"
+
+    def __add__(self, other):
+        return Person(self.name, other.surname)
 
 
-class Vehicle(ABC):
-    def __init__(self, fuel_quantity, fuel_consumption):
-        self.fuel_quantity = fuel_quantity
-        self.fuel_consumption = fuel_consumption
+class Group:
+    def __init__(self, name, people):
+        self.name = name
+        self.people = people
 
-    @abstractmethod
-    def drive(self, distance):
-        pass
+    def __len__(self):
+        return len(self.people)
 
-    @abstractmethod
-    def refuel(self, fuel):
-        pass
+    def __add__(self, other):
+        name = f"{self.name} {other.name}"
+        return Group(name, self.people + other.people)
 
+    def __repr__(self):
+        return f"Group {self.name} with members {', '.join(str(p) for p in self.people)}"
 
-class Car(Vehicle):
-    def __init__(self, fuel_quantity, fuel_consumption):
-        super().__init__(fuel_quantity, fuel_consumption)
-
-    def drive(self, distance):
-        needed_fuel = (self.fuel_consumption + 0.9) * distance
-        if needed_fuel <= self.fuel_quantity:
-            self.fuel_quantity -= needed_fuel
-
-    def refuel(self, fuel):
-        self.fuel_quantity += fuel
+    def __getitem__(self, idx):
+        return f"Person {idx}: {self.people[idx]}"
 
 
+p0 = Person('Aliko', 'Dangote')
+p1 = Person('Bill', 'Gates')
+p2 = Person('Warren', 'Buffet')
+p3 = Person('Elon', 'Musk')
+p4 = p2 + p3
 
-class Truck(Vehicle):
-    def __init__(self, fuel_quantity, fuel_consumption):
-        super().__init__(fuel_quantity, fuel_consumption)
+first_group = Group('__VIP__', [p0, p1, p2])
+second_group = Group('Special', [p3, p4])
+third_group = first_group + second_group
 
-    def drive(self, distance):
-        needed_fuel = (self.fuel_consumption + 1.6) * distance
-        if needed_fuel <= self.fuel_quantity:
-            self.fuel_quantity -= needed_fuel
+print(len(first_group))
+print(second_group)
+print(third_group[0])
 
-    def refuel(self, fuel):
-        self.fuel_quantity += fuel * 0.95
-
-
-truck = Truck(100, 15)
-truck.drive(5)
-print(truck.fuel_quantity)
-truck.refuel(50)
-print(truck.fuel_quantity)
-
+for person in third_group:
+    print(person)
