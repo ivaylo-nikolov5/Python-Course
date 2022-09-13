@@ -20,5 +20,3 @@ class Meat(Food):
 
 class Seed(Food):
     pass
-
-

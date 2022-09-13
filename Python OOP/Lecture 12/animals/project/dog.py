@@ -1,4 +1,4 @@
-from project.animals import Animal
+from wild_farm.project.animals import Animal
 
 
 class Dog(Animal):

@@ -1,4 +1,4 @@
-from project.cat import Cat
+from wild_farm.project import Cat
 
 
 class Kitten(Cat):
