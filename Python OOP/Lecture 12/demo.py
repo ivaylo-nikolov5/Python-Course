@@ -1,11 +1,8 @@
-from project1.cat import Cat
-from project1.dog import Dog
-from project1.kitten import Kitten
-from project1.tomcat import Tomcat
+from project.f1_season_app import F1SeasonApp
 
-kitten = Kitten("Kiki", 1)
-print(kitten.make_sound())
-print(kitten)
-cat = Cat("Johnny", 7, "Male")
-print(cat.make_sound())
-print(cat)
+f1_season = F1SeasonApp()
+
+print(f1_season.register_team_for_season("Red Bull", 2000000))
+print(f1_season.register_team_for_season("Mercedes", 2500000))
+print(f1_season.new_race_results("Nurburgring", 1, 7))
+print(f1_season.new_race_results("Silverstone", 10, 1))

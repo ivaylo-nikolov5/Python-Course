@@ -8,17 +8,19 @@ class MercedesTeam(FormulaTeam):
     def calculate_revenue_after_race(self, race_pos: int):
         revenue = 0
         expenses = 200000
-        prizes = {
-            1: 1000000,
-            2: 500000,
-            5: 100000,
-            7: 50000
-        }
-        if race_pos in prizes:
-            revenue += prizes[race_pos]
+
+        if race_pos == 1:
+            revenue += 1000000
+        elif race_pos == 3:
+            revenue += 500000
+
+        if race_pos <= 5:
+            revenue += 100000
+        elif race_pos <= 7:
+            revenue += 50000
 
         revenue -= expenses
         self.budget += revenue
         self.position = race_pos
         self.revenue = revenue
-        return f"The revenue after this race is {revenue}$. Current budget {self.budget}$"
+        return f"The revenue after the race is {revenue}$. Current budget {self.budget}$"

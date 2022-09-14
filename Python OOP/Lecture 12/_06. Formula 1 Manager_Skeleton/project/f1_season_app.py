@@ -15,10 +15,14 @@ class F1SeasonApp:
         else:
             raise ValueError("Invalid team name!")
 
+        return f"{team_name} has joined the new F1 season."
+
     def new_race_results(self, race_name: str, red_bull_pos: int, mercedes_pos: int):
         if self.red_bull_team is None or self.mercedes_team is None:
             raise ValueError("Not all teams have registered for the season.")
-        leading_team = "Mercedes" if self.mercedes_team.position > self.red_bull_team.position else "Red Bull"
-        mercedes_revenue = 0
+        better_team_pos = "Mercedes" if mercedes_pos < red_bull_pos else "Red Bull"
 
-        return f"Red bull: {self.red_bull_team.cal}. Mercedes: { Mercedes revenue message }. { team with better position } is ahead at the { race name } race."
+
+        return f"Red Bull: {self.red_bull_team.calculate_revenue_after_race(red_bull_pos)}. Mercedes: " \
+               f"{self.mercedes_team.calculate_revenue_after_race(mercedes_pos)}. {better_team_pos} is ahead at" \
+               f" the {race_name} race."
