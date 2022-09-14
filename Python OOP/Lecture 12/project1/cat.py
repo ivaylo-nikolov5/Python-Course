@@ -1,10 +1,9 @@
-from project.animal import Animal
+from project1.animal import Animal
 
 
-class Dog(Animal):
+class Cat(Animal):
     def __init__(self, name, age, gender):
         super().__init__(name, age, gender)
 
     def make_sound(self):
-        return f"Woof!"
-
+        return "Meow meow!"

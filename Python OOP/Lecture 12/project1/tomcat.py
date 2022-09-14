@@ -1,4 +1,4 @@
-from project.cat import Cat
+from project1.cat import Cat
 
 
 class Tomcat(Cat):
