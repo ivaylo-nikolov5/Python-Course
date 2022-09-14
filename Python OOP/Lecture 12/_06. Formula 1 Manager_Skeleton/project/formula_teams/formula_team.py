@@ -2,6 +2,8 @@ from abc import ABC
 
 
 class FormulaTeam(ABC):
+    position = 0
+    revenue = 0
     MINIMUM_BUDGET = 1000000
 
     def __init__(self, budget):

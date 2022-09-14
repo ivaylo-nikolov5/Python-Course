@@ -19,4 +19,6 @@ class RedBullTeam(FormulaTeam):
 
         revenue -= expenses
         self.budget += revenue
+        self.position = race_pos
+        self.revenue = revenue
         return f"The revenue after this race is {revenue}$. Current budget {self.budget}$"
