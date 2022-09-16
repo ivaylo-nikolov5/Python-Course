@@ -1,5 +1,4 @@
 class Worker:
-
     def work(self):
         print("I'm working!!")
 
@@ -18,8 +17,8 @@ class Manager:
         if self.worker is not None:
             self.worker.work()
 
-class SuperWorker:
 
+class SuperWorker:
     def work(self):
         print("I work very hard!!!")
 
@@ -27,6 +26,7 @@ class SuperWorker:
 
 worker = Worker()
 manager = Manager()
+
 manager.set_worker(worker)
 manager.manage()
 
@@ -35,3 +35,4 @@ try:
     manager.set_worker(super_worker)
 except AssertionError:
     print("manager fails to support super_worker....")
+
