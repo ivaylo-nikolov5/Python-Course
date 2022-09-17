@@ -1,5 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
+
 class IEmail(object):
     __metaclass__ = ABCMeta
 
@@ -14,6 +15,7 @@ class IEmail(object):
     @abstractmethod
     def set_content(self, content):
         pass
+
 
 class Email(IEmail):
 
