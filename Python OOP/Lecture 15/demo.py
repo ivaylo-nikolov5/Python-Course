@@ -1,21 +1,21 @@
-class reverse_iter:
-    def __init__(self, iterable):
-        self.iterable = iterable
-        self.idx = len(iterable) - 1
+class vowels:
+    def __init__(self, string):
+        self.string = string
+        self.start = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.idx >= 0:
-            current = self.iterable[self.idx]
-            self.idx -= 1
-            return current
-        raise StopIteration
-
-reversed_list = reverse_iter("abcdef")
-for item in reversed_list:
-    print(item)
+        while self.start < len(self.string):
+            current = self.string[self.start]
+            self.start += 1
+            if current in "aeyuioAEYUIO":
+                return current
+        else:
+            raise StopIteration
 
 
-
+my_string = vowels('Abcedifuty0o')
+for char in my_string:
+    print(char)
