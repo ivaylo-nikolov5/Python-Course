@@ -1,22 +1,21 @@
-class custom_range:
-    def __init__(self, start, end):
-        self.start = start
-        self.end = end
+class reverse_iter:
+    def __init__(self, iterable):
+        self.iterable = iterable
+        self.idx = len(iterable) - 1
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.start <= self.end:
-            current = self.start
-            self.start += 1
+        if self.idx >= 0:
+            current = self.iterable[self.idx]
+            self.idx -= 1
             return current
-        raise StopIteration()
+        raise StopIteration
 
-
-one_to_ten = custom_range(1, 10)
-for num in one_to_ten:
-    print(num)
+reversed_list = reverse_iter("abcdef")
+for item in reversed_list:
+    print(item)
 
 
 
