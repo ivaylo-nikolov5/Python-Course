@@ -15,6 +15,7 @@ class sequence_repeat:
         self.idx += 1
         return current
 
+
 result = sequence_repeat('I Love Python', 3)
 for item in result:
     print(item, end ='')
