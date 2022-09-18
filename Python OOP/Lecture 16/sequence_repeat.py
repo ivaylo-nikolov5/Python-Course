@@ -3,18 +3,17 @@ class sequence_repeat:
         self.sequence = sequence
         self.number = number
         self.idx = 0
-        self.passed_iterations = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.passed_iterations == self.number:
+        if self.number == 0:
             raise StopIteration
         elif self.idx % len(self.sequence) == 0:
             self.idx = 0
         current = self.sequence[self.idx]
-        self.passed_iterations += 1
+        self.number -= 1
         self.idx += 1
         return current
 
