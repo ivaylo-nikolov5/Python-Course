@@ -10,9 +10,7 @@ class sequence_repeat:
     def __next__(self):
         if self.number == 0:
             raise StopIteration
-        elif self.idx % len(self.sequence) == 0:
-            self.idx = 0
-        current = self.sequence[self.idx]
+        current = self.sequence[self.idx % len(self.sequence)]
         self.number -= 1
         self.idx += 1
         return current
