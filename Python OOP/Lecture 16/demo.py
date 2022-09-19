@@ -1,17 +1,21 @@
-class countdown_iterator:
-    def __init__(self, count):
-        self.count = count
+class sequence_repeat:
+    def __init__(self, sequence, number):
+        self.sequence = sequence
+        self.number = number
+        self.counter = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.count < 0:
+        if self.counter == self.number:
             raise StopIteration
-        current = self.count
-        self.count -= 1
+        current = self.sequence[self.counter % len(self.sequence)]
+        self.counter += 1
         return current
 
-iterator = countdown_iterator(10)
-for item in iterator:
-    print(item, end=" ")
+result = sequence_repeat('I Love Python', 3)
+for item in result:
+    print(item, end ='')
+
+
