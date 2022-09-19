@@ -1,16 +1,9 @@
-def is_prime(num):
-    if num <= 1:
-        return False
-    for i in range(2, num):
-        if num % i == 0:
-            return False
-    return True
+from itertools import permutations
 
 
-def get_primes(nums: list):
-    for num in nums:
-        if is_prime(num):
-            yield num
+def possible_permutations(nums):
+    for permutation in permutations(nums):
+        yield list(permutation)
 
 
-print(list(get_primes([2, 4, 3, 5, 6, 9, 1, 0])))
+[print(n) for n in possible_permutations([1, 2, 3])]
