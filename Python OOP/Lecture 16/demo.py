@@ -1,21 +1,27 @@
-class sequence_repeat:
-    def __init__(self, sequence, number):
-        self.sequence = sequence
-        self.number = number
-        self.counter = 0
+def solution():
 
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.counter == self.number:
-            raise StopIteration
-        current = self.sequence[self.counter % len(self.sequence)]
-        self.counter += 1
-        return current
-
-result = sequence_repeat('I Love Python', 3)
-for item in result:
-    print(item, end ='')
+    def integers():
+        i = 1
+        while True:
+            yield i
+            i += 1
 
 
+    def halves():
+        for i in integers():
+            yield i / 2
+
+    def take(n, seq):
+        result = []
+        for num in range(n):
+            result.append(next(seq))
+
+        return result
+
+
+    return (take, halves, integers)
+
+
+take = solution()[0]
+halves = solution()[1]
+print(take(5, halves()))
