@@ -1,9 +1,16 @@
-def read_next(*args):
-    for obj in args:
-        for i in obj:
-            yield i
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, num):
+        if num % i == 0:
+            return False
+    return True
 
 
-for i in read_next("Need", (2, 3), ["words", "."]):
-    print(i)
+def get_primes(nums: list):
+    for num in nums:
+        if is_prime(num):
+            yield num
 
+
+print(list(get_primes([2, 4, 3, 5, 6, 9, 1, 0])))
