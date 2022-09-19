@@ -1,27 +1,16 @@
-def solution():
-
-    def integers():
-        i = 1
-        while True:
-            yield i
-            i += 1
-
-
-    def halves():
-        for i in integers():
-            yield i / 2
-
-    def take(n, seq):
-        result = []
-        for num in range(n):
-            result.append(next(seq))
-
-        return result
+def fibonacci():
+    num1 = 0
+    num2 = 1
+    yield num1
+    yield num2
+    while True:
+        next_num = num1 + num2
+        yield next_num
+        num1 = num2
+        num2 = next_num
 
 
-    return (take, halves, integers)
+generator = fibonacci()
+for i in range(1):
+    print(next(generator))
 
-
-take = solution()[0]
-halves = solution()[1]
-print(take(5, halves()))
