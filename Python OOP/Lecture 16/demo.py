@@ -1,22 +1,27 @@
-class take_skip:
-    def __init__(self, step, count):
-        self.step = step
-        self.count = count
-        self.passed_iterations = 0
+class dictionary_iter:
+    def __init__(self, obj: dict):
+        self.obj = list(obj.items())
+        self.counter = 0
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.count == 0:
-            raise StopIteration()
-        current = self.passed_iterations * self.step
-        self.count -= 1
-        self.passed_iterations += 1
+        if self.counter == len(self.obj):
+            raise StopIteration
+        current = self.obj[self.counter]
+        self.counter += 1
         return current
 
-numbers = take_skip(2, 6)
-for number in numbers:
-    print(number)
+
+result = dictionary_iter({1: "1", 2: "2"})
+for x in result:
+    print(x)
+
+result = dictionary_iter({"name": "Peter", "age": 24})
+for x in result:
+    print(x)
+
+
 
 
