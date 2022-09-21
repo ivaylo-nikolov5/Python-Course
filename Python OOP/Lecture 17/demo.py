@@ -1,9 +1,12 @@
-def number_increment(numbers):
+def vowel_filter(function):
 
-    def increase():
-        return [x + 1 for x in numbers]
+    def wrapper():
+        letters = function()
+        return [letter for letter in letters if letter.lower() in "aeyuio"]
+    return wrapper
 
-    return increase()
+@vowel_filter
+def get_letters():
+    return ["a", "b", "c", "d", "e"]
 
-
-print(number_increment([1, 2, 3]))
+print(get_letters())
