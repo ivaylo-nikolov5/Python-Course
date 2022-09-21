@@ -4,7 +4,7 @@ def vowel_filter(function):
         letters = function()
         result = []
         for letter in letters:
-            if letter in "aeuioy":
+            if letter.lower() in "aeuioy":
                 result.append(letter)
 
         return result
