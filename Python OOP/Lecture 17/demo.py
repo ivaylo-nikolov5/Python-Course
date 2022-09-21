@@ -1,12 +1,12 @@
-def vowel_filter(function):
+def even_numbers(function):
 
-    def wrapper():
-        letters = function()
-        return [letter for letter in letters if letter.lower() in "aeyuio"]
+    def wrapper(numbers):
+        return [x for x in numbers if x % 2 == 0]
+
     return wrapper
 
-@vowel_filter
-def get_letters():
-    return ["a", "b", "c", "d", "e"]
 
-print(get_letters())
+@even_numbers
+def get_numbers(numbers):
+    return numbers
+print(get_numbers([1, 2, 3, 4, 5]))
