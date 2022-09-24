@@ -1,18 +1,19 @@
-class store_results:
-    def __init__(self, function):
-        self.function = function
+from time import time
 
-    def __call__(self, *args):
-        with open("results.txt", "a") as file:
-            file.writelines(f"Function '{self.function.__name__}' was called. Result: {self.function(*args)}\n")
+def exec_time(function):
+    def wrapper(*args):
+        start_time = time()
+        function(*args)
+        end_time = time()
+        elapsed_time = end_time - start_time
+        return elapsed_time
 
-@store_results
-def add(a, b):
-    return a + b
+    return wrapper
 
-@store_results
-def mult(a, b):
-    return a * b
-
-add(2, 2)
-mult(6, 4)
+@exec_time
+def concatenate(strings):
+    result = ""
+    for string in strings:
+        result += string
+    return result
+print(concatenate(["a" for i in range(1000000)]))
