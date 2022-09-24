@@ -1,32 +1,17 @@
-def wrap_in_tags(tag, text):
-    return f"<{tag}>{text}</{tag}>"
+def type_check(var_type):
+    def decorator(function):
+        def wrapper(arg):
+            if not isinstance(arg, var_type):
+                return "Bad Type"
+            return function(arg)
+        return wrapper
+    return decorator
 
 
-def make_bold(function):
-    def wrapper(*args):
-        return wrap_in_tags("b", function(*args))
+@type_check(str)
+def first_letter(word):
+    return word[0]
 
-    return wrapper
+print(first_letter('Hello World'))
+print(first_letter(['Not', 'A', 'String']))
 
-
-def make_italic(function):
-    def wrapper(*args):
-        return wrap_in_tags("i", function(*args))
-
-    return wrapper
-
-
-def make_underline(function):
-    def wrapper(*args):
-        return wrap_in_tags("u", function(*args))
-
-    return wrapper
-
-
-@make_bold
-@make_italic
-@make_underline
-def greet(name):
-    return f"Hello, {name}"
-
-print(greet("Peter"))
