@@ -1,17 +1,32 @@
-def even_parameters(function):
-    def wrapper(*args):
-        for arg in args:
-            if not isinstance(arg, int) or arg % 2 != 0:
-                return "Please use only even numbers!"
+def wrap_in_tags(tag, text):
+    return f"<{tag}>{text}</{tag}>"
 
-        return function(*args)
+
+def make_bold(function):
+    def wrapper(*args):
+        return wrap_in_tags("b", function(*args))
 
     return wrapper
 
 
-@even_parameters
-def add(a, b):
-    return a + b
+def make_italic(function):
+    def wrapper(*args):
+        return wrap_in_tags("i", function(*args))
 
-print(add(2, 4))
-print(add("Peter", 1))
+    return wrapper
+
+
+def make_underline(function):
+    def wrapper(*args):
+        return wrap_in_tags("u", function(*args))
+
+    return wrapper
+
+
+@make_bold
+@make_italic
+@make_underline
+def greet(name):
+    return f"Hello, {name}"
+
+print(greet("Peter"))
