@@ -1,21 +1,17 @@
-def cache(function):
-    log = {}
-    def wrapper(number):
-        if number in log:
-            return log[number]
-        result = function(number)
-        log[number] = result
-        return result
+def wrap_in_tags(tag, text):
+    return f"<{tag}>{text}</{tag}>"
 
-    wrapper.log = log
-    return wrapper
+def tags(tag):
+    def decorator(function):
+        def wrapper(*args):
+            return wrap_in_tags(tag, function(*args))
 
-@cache
-def fibonacci(n):
-    if n < 2:
-        return n
-    return fibonacci(n - 1) + fibonacci(n - 2)
+        return wrapper
+
+    return decorator
 
 
-fibonacci(3)
-print(fibonacci.log)
+@tags('p')
+def join_strings(*args):
+    return "".join(args)
+print(join_strings("Hello", " you!"))
