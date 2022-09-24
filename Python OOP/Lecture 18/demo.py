@@ -1,12 +1,17 @@
-def logged(function):
+def even_parameters(function):
     def wrapper(*args):
-        func_name = function.__name__
-        func_result = function(*args)
-        return f"you called {func_name}{args}\nit returned {func_result}"
+        for arg in args:
+            if not isinstance(arg, int) or arg % 2 != 0:
+                return "Please use only even numbers!"
+
+        return function(*args)
+
     return wrapper
 
 
-@logged
-def sum_func(a, b):
+@even_parameters
+def add(a, b):
     return a + b
-print(sum_func(1, 4))
+
+print(add(2, 4))
+print(add("Peter", 1))
