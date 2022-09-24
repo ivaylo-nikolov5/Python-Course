@@ -20,3 +20,4 @@ class Laptop(Computer):
         ram_price = Laptop.AVAILABLE_RAMS[ram]
         self.price += cpu_price + ram_price
         return f"{repr(Computer)} for {self.price}$."
+
