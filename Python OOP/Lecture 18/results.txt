@@ -1,3 +1,4 @@
-
+Function 'add' was add called. Result: 4
+Function 'mult' was add called. Result: 24
 Function 'add' was called. Result: 4
 Function 'mult' was called. Result: 24

@@ -1,17 +1,18 @@
-def wrap_in_tags(tag, text):
-    return f"<{tag}>{text}</{tag}>"
+class store_results:
+    def __init__(self, function):
+        self.function = function
 
-def tags(tag):
-    def decorator(function):
-        def wrapper(*args):
-            return wrap_in_tags(tag, function(*args))
+    def __call__(self, *args):
+        with open("results.txt", "a") as file:
+            file.writelines(f"Function '{self.function.__name__}' was called. Result: {self.function(*args)}\n")
 
-        return wrapper
+@store_results
+def add(a, b):
+    return a + b
 
-    return decorator
+@store_results
+def mult(a, b):
+    return a * b
 
-
-@tags('p')
-def join_strings(*args):
-    return "".join(args)
-print(join_strings("Hello", " you!"))
+add(2, 2)
+mult(6, 4)
