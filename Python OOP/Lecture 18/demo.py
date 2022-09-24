@@ -1,17 +1,21 @@
-def type_check(var_type):
-    def decorator(function):
-        def wrapper(arg):
-            if not isinstance(arg, var_type):
-                return "Bad Type"
-            return function(arg)
-        return wrapper
-    return decorator
+def cache(function):
+    log = {}
+    def wrapper(number):
+        if number in log:
+            return log[number]
+        result = function(number)
+        log[number] = result
+        return result
+
+    wrapper.log = log
+    return wrapper
+
+@cache
+def fibonacci(n):
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
 
 
-@type_check(str)
-def first_letter(word):
-    return word[0]
-
-print(first_letter('Hello World'))
-print(first_letter(['Not', 'A', 'String']))
-
+fibonacci(3)
+print(fibonacci.log)
