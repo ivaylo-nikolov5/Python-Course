@@ -2,7 +2,6 @@ from abc import ABC, abstractmethod
 
 
 class Computer(ABC):
-    VALID_COMPUTER_TYPES = ["Laptop", "Desktop Computer"]
 
     def __init__(self, manufacturer: str, model: str):
         self.manufacturer = manufacturer
@@ -35,7 +34,6 @@ class Computer(ABC):
     def configure_computer(self, processor: str, ram: int):
         pass
 
-    @abstractmethod
     def __repr__(self):
         return f"{self.manufacturer} {self.model} with {self.processor} and {self.ram}GB RAM"
 
