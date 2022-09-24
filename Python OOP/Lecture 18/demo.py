@@ -1,5 +1,12 @@
-from project.computer_store_app import ComputerStoreApp
+def logged(function):
+    def wrapper(*args):
+        func_name = function.__name__
+        func_result = function(*args)
+        return f"you called {func_name}{args}\nit returned {func_result}"
+    return wrapper
 
-computer_store = ComputerStoreApp()
-print(computer_store.build_computer("Laptop", "Apple", "Macbook", "Apple M1 Pro", 64))
-print(computer_store.sell_computer(10000, "Apple M1 Pro", 32))
+
+@logged
+def sum_func(a, b):
+    return a + b
+print(sum_func(1, 4))
