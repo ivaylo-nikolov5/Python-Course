@@ -20,6 +20,8 @@ class Worker:
         return f'{self.name} has saved {self.money} money.'
 
 import unittest
+
+
 class WorkerTests(unittest.TestCase):
     def test_worker_is_initialized_correctly(self):
         worker = Worker("Test", 1000, 10)
