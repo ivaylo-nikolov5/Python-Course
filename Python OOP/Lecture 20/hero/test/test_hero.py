@@ -59,3 +59,28 @@ class HeroTest(TestCase):
         expected = f"You cannot fight {this_hero.username}. He needs to rest"
         self.assertEqual(expected, str(ex.exception))
 
+    def test_battle_method_draw_case(self):
+        other_hero = Hero("other hero", 2, 100, 100)
+        this_hero = Hero("this hero", 2, 100, 100)
+        result = this_hero.battle(other_hero)
+
+        expected = "Draw"
+        self.assertEqual(expected, result)
+
+    def test_battle_method_lose_case(self):
+        other_hero = Hero("other hero", 2, 100, 100)
+        result = self.hero.battle(other_hero)
+
+        expected = "You lose"
+        self.assertEqual(3, other_hero.level)
+        self.assertEqual(50, other_hero.health)
+        self.assertEqual(105, other_hero.damage)
+
+        self.assertEqual(expected, result)
+
+    def test_the_dunder_str_method(self):
+        result = f"Hero {self.hero.username}: {self.hero.level} lvl\n" \
+               f"Health: {self.hero.health}\n" \
+               f"Damage: {self.hero.damage}\n"
+
+        self.assertEqual(result, str(self.hero))
