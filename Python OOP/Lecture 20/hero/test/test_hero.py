@@ -1,5 +1,5 @@
 from unittest import TestCase, main
-from project.hero import Hero
+from hero.project.hero import Hero
 
 
 class HeroTest(TestCase):
@@ -84,3 +84,7 @@ class HeroTest(TestCase):
                f"Damage: {self.hero.damage}\n"
 
         self.assertEqual(result, str(self.hero))
+
+
+if __name__ == '__main__':
+    main()
