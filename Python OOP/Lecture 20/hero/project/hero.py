@@ -44,3 +44,5 @@ class Hero:
         return f"Hero {self.username}: {self.level} lvl\n" \
                f"Health: {self.health}\n" \
                f"Damage: {self.damage}\n"
+
+
