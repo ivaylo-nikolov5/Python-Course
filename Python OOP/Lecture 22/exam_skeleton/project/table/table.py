@@ -24,23 +24,28 @@ class Table(ABC):
 
     @abstractmethod
     def reserve(self, number_of_people):
-        pass
+        self.reserved = True
+        if self.capacity <= number_of_people:
+            self.number_of_people = number_of_people
 
     @abstractmethod
     def order_food(self, baked_food: BakedFood):
-        pass
+        self.food_orders.append(baked_food)
 
     @abstractmethod
     def order_drink(self, drink: Drink):
-        pass
+        self.drink_orders.append(drink)
 
     @abstractmethod
     def get_bill(self):
-        pass
+        bill = self.bill(self.food_orders) + self.bill(self.drink_orders)
+        return bill
 
     @abstractmethod
     def clear(self):
-        pass
+        self.food_orders = []
+        self.drink_orders = []
+        self.number_of_people = 0
 
     @abstractmethod
     def free_table_info(self):
@@ -48,3 +53,11 @@ class Table(ABC):
             return f"Table: {self.table_number}"\
                    f"Type: {self.__class__.__name__}"\
                    f"Capacity: {self.capacity}"
+
+    @staticmethod
+    def bill(orders: list):
+        total = 0
+        for order in orders:
+            total += order.price
+
+        return total
