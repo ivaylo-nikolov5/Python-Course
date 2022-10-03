@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-
+from project.core.validator import Validator
 
 class Drink(ABC):
     def __init__(self, name, portion, price, brand):
@@ -14,8 +14,7 @@ class Drink(ABC):
     
     @name.setter
     def name(self, value):
-        if not value.strip():
-            raise ValueError("Name cannot be empty string or white space!")
+        Validator.raise_if_string_is_empty_or_whitespace(value, "Name cannot be empty string or white space!")
         self.__name = value
 
     @property
@@ -24,8 +23,7 @@ class Drink(ABC):
 
     @portion.setter
     def portion(self, value):
-        if value <= 0:
-            raise ValueError("Portion cannot be less than or equal to zero!")
+        Validator.raise_if_number_is_less_or_equal_to_zero(value, "Portion cannot be less than or equal to zero!")
         self.__portion = value
         
     @property
@@ -34,10 +32,9 @@ class Drink(ABC):
     
     @brand.setter
     def brand(self, value):
-        if not value.strip():
-            raise ValueError("Brand cannot be empty string or white space!")
+        Validator.raise_if_string_is_empty_or_whitespace(value, "Brand cannot be empty string or white space!")
         self.__brand = value
 
     @abstractmethod
     def __repr__(self):
-        return f" - {self.name} {self.brand} - {self.portion}ml - {self.price}lv"
+        return f" - {self.name} {self.brand} - {self.portion}ml - {self.price:.2f}lv"

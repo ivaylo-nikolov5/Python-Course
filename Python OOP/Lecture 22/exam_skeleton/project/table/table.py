@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-
 from project.baked_food.baked_food import BakedFood
 from project.drink.drink import Drink
+from project.core.validator import Validator
 
 
 class Table(ABC):
@@ -19,8 +19,7 @@ class Table(ABC):
 
     @capacity.setter
     def capacity(self, value):
-        if value <= 0:
-            raise ValueError("Capacity has to be greater than 0!")
+        Validator.raise_if_number_is_less_or_equal_to_zero(value, "Capacity has to be greater than 0!")
         self.__capacity = value
 
     @abstractmethod
