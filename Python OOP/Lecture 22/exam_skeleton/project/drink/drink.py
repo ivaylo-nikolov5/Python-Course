@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 from project.core.validator import Validator
 
+
 class Drink(ABC):
+    @abstractmethod
     def __init__(self, name, portion, price, brand):
         self.name = name
         self.portion = portion
@@ -35,6 +37,5 @@ class Drink(ABC):
         Validator.raise_if_string_is_empty_or_whitespace(value, "Brand cannot be empty string or white space!")
         self.__brand = value
 
-    @abstractmethod
     def __repr__(self):
-        return f" - {self.name} {self.brand} - {self.portion}ml - {self.price:.2f}lv"
+        return f" - {self.name} {self.brand} - {self.portion:.2f}ml - {self.price:.2f}lv"

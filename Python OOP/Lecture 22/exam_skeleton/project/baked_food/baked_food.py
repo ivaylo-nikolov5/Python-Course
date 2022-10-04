@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 from project.core.validator import Validator
 
+
 class BakedFood(ABC):
+    @abstractmethod
     def __init__(self, name, portion, price):
         self.name = name
         self.portion = portion
@@ -22,10 +24,8 @@ class BakedFood(ABC):
 
     @price.setter
     def price(self, value):
-        if value <= 0:
-            raise ValueError("Price cannot be less than or equal to zero!")
+        Validator.raise_if_price_is_zero_or_negative(value, "Price cannot be less than or equal to zero!")
         self.__price = value
 
-    @abstractmethod
     def __repr__(self):
         return f" - {self.name}: {self.portion}g - {self.price:.2f}lv"
