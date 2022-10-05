@@ -10,7 +10,7 @@ class Validator:
             raise ValueError(f"Invalid speed limit! Must be between {min_speed} and {max_speed}!")
 
     @staticmethod
-    def validate_if_name_is_whitespace_or_empty_string(name: str):
+    def validate_if_name_is_whitespace_or_empty_string(name: str, message: string):
         if not name.strip():
-            raise ValueError("Name should contain at least one character!")
+            raise ValueError(message)
 

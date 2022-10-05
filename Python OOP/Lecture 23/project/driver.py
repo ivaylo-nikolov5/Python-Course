@@ -13,5 +13,5 @@ class Driver:
 
     @name.setter
     def name(self, value):
-        Validator.validate_if_name_is_whitespace_or_empty_string(value)
+        Validator.validate_if_name_is_whitespace_or_empty_string(value, "Name should contain at least one character!")
         self.__name = value
