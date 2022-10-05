@@ -26,3 +26,9 @@ class Validator:
             if driver.name == name:
                 raise Exception(f"Driver {name} is already created!")
 
+    @staticmethod
+    def check_if_race_already_exists(races, name):
+        for race in races:
+            if race.name == name:
+                raise Exception(f"Race {name} is already created!")
+
