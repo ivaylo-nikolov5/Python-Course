@@ -1,4 +1,4 @@
-from project.race import Race
+from project_.race import Race
 
 
 class CreateRace:

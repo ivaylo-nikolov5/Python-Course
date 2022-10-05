@@ -1,7 +1,7 @@
-from project.core.create_car import CreateCar
-from project.core.create_driver import CreateDriver
-from project.core.create_race import CreateRace
-from project.core.validator import Validator
+from project_.core.create_car import CreateCar
+from project_.core.create_driver import CreateDriver
+from project_.core.create_race import CreateRace
+from project_.core.validator import Validator
 
 
 class Controller:

@@ -1,4 +1,4 @@
-from project.core.validator import Validator
+from project_.core.validator import Validator
 
 
 class Driver:
