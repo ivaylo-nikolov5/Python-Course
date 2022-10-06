@@ -1,2 +1,0 @@
-class Calculations:
-    pass
