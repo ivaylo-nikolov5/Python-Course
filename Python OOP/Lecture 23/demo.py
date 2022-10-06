@@ -1,9 +1,5 @@
-test = {}
+from project.team import Team
+other_team = Team("Barbarians")
+other_team.add_member(barbarian=15, barbarian2=19)
 
-def add_name_age(**kwargs):
-    for name, age in kwargs.items():
-        test[name] = age
-
-
-add_name_age(Ivaylo=17, Emin=16)
-print(test)
+print(other_team)

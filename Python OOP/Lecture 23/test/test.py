@@ -48,18 +48,46 @@ class TeamTest(TestCase):
         self.team.add_member(Ivaylo=17, Emin=16)
         other_team.add_member(barbarian=15)
         result = self.team > other_team
-        self.assertTrue(result)
+        self.assertEqual(True, result)
 
     def test_greater_than_method_with_false_output(self):
         other_team = Team("Barbarians")
         self.team.add_member(Ivaylo=17, Emin=16)
         other_team.add_member(barbarian=15, barbarian2=19)
         result = self.team > other_team
-        self.assertFalse(result)
+        self.assertEqual(False, result)
 
         other_team.add_member(barbarian3=21)
         result = self.team > other_team
         self.assertFalse(result)
+
+    def test_the_len_method(self):
+        self.team.add_member(Ivaylo=17, Emin=16)
+        result = len(self.team)
+        expected = 2
+
+        self.assertEqual(expected, result)
+
+    def test_the_add_method(self):
+        other_team = Team("Barbarians")
+        self.team.add_member(Ivaylo=17, Emin=16)
+        other_team.add_member(barbarian=15, barbarian2=19)
+        new_team = self.team + other_team
+
+        name = "BulgariansBarbarians"
+        members = {"Ivaylo": 17, "Emin": 16, "barbarian": 15, "barbarian2": 19}
+        self.assertEqual(name, new_team.name)
+        self.assertEqual(members, new_team.members)
+
+    def test_the_str_method(self):
+        other_team = Team("Barbarians")
+        other_team.add_member(barbarian=15, barbarian2=19)
+
+        expected = f"Team name: Barbarians\nMember: barbarian2 - 19-years old\nMember: barbarian - 15-years old"
+        result = str(other_team)
+
+        self.assertEqual(expected, result)
+
 
 if __name__ == '__main__':
     main()
