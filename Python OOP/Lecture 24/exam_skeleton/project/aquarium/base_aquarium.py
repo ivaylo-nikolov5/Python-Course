@@ -27,6 +27,8 @@ class BaseAquarium(ABC):
         self.fish.append(fish)
         return f"Successfully added {self.__class__.__name__} to {self.name}."
 
+
+
     def remove_fish(self, fish: BaseFish):
         self.fish.remove(fish)
 
