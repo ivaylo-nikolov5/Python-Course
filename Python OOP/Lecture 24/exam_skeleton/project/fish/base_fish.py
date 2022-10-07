@@ -1,9 +1,12 @@
+from abc import ABC, abstractmethod
+
 from project.core.validator import Validator
 
 
-class BaseFish:
+class BaseFish(ABC):
     SIZE_INCREMENTAL = 5
 
+    @abstractmethod
     def __init__(self, name, species, size, price):
         self.name = name
         self.species = species
