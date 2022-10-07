@@ -10,5 +10,5 @@ class CreateAquarium:
 
     @staticmethod
     def create_aquarium(aquarium_type, name):
-        aquarium = CreateAquarium.AQUARIUM_TYPES[aquarium_type](name)
-        return aquarium
+        return CreateAquarium.AQUARIUM_TYPES[aquarium_type](name)
+

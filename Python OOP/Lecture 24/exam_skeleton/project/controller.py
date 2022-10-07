@@ -1,3 +1,5 @@
+from project.aquarium.freshwater_aquarium import FreshwaterAquarium
+from project.aquarium.saltwater_aquarium import SaltwaterAquarium
 from project.decoration.decoration_repository import DecorationRepository
 from project.core.create_aquarium import CreateAquarium
 from project.core.create_decoration import CreateDecoration
@@ -6,6 +8,11 @@ from project.core.create_fish import CreateFish
 
 
 class Controller:
+    AQUARIUM_TYPES = {
+        "FreshwaterAquarium": FreshwaterAquarium,
+        "SaltwaterAquarium": SaltwaterAquarium
+    }
+
     def __init__(self):
         self.decorations_repository = DecorationRepository()
         self.aquariums = []
@@ -62,3 +69,4 @@ class Controller:
             result += str(aquarium) + "\n"
 
         return result.strip()
+
