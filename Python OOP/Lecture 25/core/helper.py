@@ -3,7 +3,7 @@ class Helper:
     def find_index(values, index):
         for idx in range(len(values)):
             if idx == index:
-                return values[idx]
+                return idx
 
         raise IndexError("Invalid index!")
 
@@ -20,3 +20,17 @@ class Helper:
             values.append(el)
 
         return values
+
+    @staticmethod
+    def insert_value_in_list(values, value, index):
+        if index < 0 or index > len(values):
+            raise IndexError("Invalid index!")
+
+        new_values = []
+
+        for idx in range(len(values)):
+            if idx == index:
+                new_values.append(value)
+            new_values.append(values[idx])
+
+        return new_values

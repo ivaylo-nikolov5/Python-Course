@@ -22,4 +22,5 @@ try:
 except IndexError:
     print("Invalid index! Try again.")
 
-print(type)
+print(custom_list.extend([2, 3, 4, 5]))
+print(custom_list.insert(2, 4))
