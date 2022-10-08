@@ -22,7 +22,22 @@ class TestCustomList(TestCase):
         self.assertEqual([10, 20, 40, 50], self.test_list.get_list())
         self.assertEqual(30, element)
 
+    def test_remove_element_with_wrong_index(self):
+        self.test_list._CustomList__values = [10, 20, 30, 40, 50]
+        with self.assertRaises(IndexError) as ex:
+            self.test_list.remove(7)
+        self.assertEqual("Invalid index!", str(ex.exception))
 
+    def test_get_value_by_index_returns_element(self):
+        self.test_list._CustomList__values = [10, 20, 30, 40, 50]
+        value = self.test_list.get(4)
+        self.assertEqual(50, value)
+
+    def test_get_value_with_wrong_index(self):
+        self.test_list._CustomList__values = [10, 20, 30, 40, 50]
+        with self.assertRaises(IndexError) as ex:
+            self.test_list.get(9)
+        self.assertEqual("Invalid index!", str(ex.exception))
 
 if __name__ == '__main__':
     main()

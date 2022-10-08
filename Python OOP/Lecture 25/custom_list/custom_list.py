@@ -1,3 +1,5 @@
+from core.helper import Helper
+
 class CustomList:
     def __init__(self):
         self.__values = []
@@ -9,9 +11,11 @@ class CustomList:
         self.__values.append(value)
 
     def remove(self, index):
-        for el in range(len(self.__values)):
-            if el == index:
-                value = self.__values[el]
-                self.__values.remove(value)
-                return value
+        value = Helper.find_index(self.__values, index)
+        self.__values.remove(value)
+        return value
+
+    def get(self, index):
+        value = Helper.find_index(self.__values, index)
+        return value
 
