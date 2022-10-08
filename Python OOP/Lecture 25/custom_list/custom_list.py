@@ -19,3 +19,4 @@ class CustomList:
         value = Helper.find_index(self.__values, index)
         return value
 
+
