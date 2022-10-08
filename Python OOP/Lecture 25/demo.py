@@ -21,3 +21,5 @@ try:
     print(custom_list.get(4))
 except IndexError:
     print("Invalid index! Try again.")
+
+print(type)

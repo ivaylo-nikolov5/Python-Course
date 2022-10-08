@@ -39,5 +39,24 @@ class TestCustomList(TestCase):
             self.test_list.get(9)
         self.assertEqual("Invalid index!", str(ex.exception))
 
+    def test_extend_with_list_and_tuple(self):
+        self.test_list._CustomList__values = [10, 20]
+        self.test_list.extend([30, 40])
+        self.assertEqual([10, 20, 30, 40], self.test_list.get_list())
+
+        self.test_list.extend((50, 60))
+        self.assertEqual([10, 20, 30, 40, 50, 60], self.test_list.get_list())
+
+    def test_extend_with_dict(self):
+        self.test_list._CustomList__values = [10, 20]
+        self.test_list.extend({30: "30", 40: "40"})
+        self.assertEqual([10, 20, 30, 40], self.test_list.get_list())
+
+    def test_extend_with_string(self):
+        self.test_list._CustomList__values = [1, 2]
+        self.test_list.extend("34")
+        self.assertEqual([1, 2, "3", "4"], self.test_list.get_list())
+
+
 if __name__ == '__main__':
     main()
