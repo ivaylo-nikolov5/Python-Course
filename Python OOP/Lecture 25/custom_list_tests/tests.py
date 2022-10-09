@@ -187,5 +187,21 @@ class TestCustomList(TestCase):
         result = self.test_list.overbound()
         self.assertEqual(50, result)
 
+    def test_underbound_with_an_empty_list_raises(self):
+        with self.assertRaises(EmptyList) as ex:
+            self.test_list.underbound()
+        self.assertEqual("Cannot find the lowest value in an empty list!", str(ex.exception))
+
+    def test_underbound_with_a_bool_value_in_the_list(self):
+        self.test_list._CustomList__values = [40, 50, True]
+        with self.assertRaises(Exception) as ex:
+            self.test_list.underbound()
+        self.assertEqual("The value cannot be bool type of data!", str(ex.exception))
+
+    def test_underbound_with_proper_values(self):
+        self.test_list._CustomList__values = [40, 50, 10, 20, 30]
+        result = self.test_list.underbound()
+        self.assertEqual(10, result)
+
 if __name__ == '__main__':
     main()

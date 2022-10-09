@@ -99,7 +99,8 @@ class CustomList:
         return biggest
 
     def underbound(self):
-        pass
+        lowest = Helper.find_lowest(self.__values)
+        return lowest
 
     def __str__(self):
         return str(list(self.get_list()))

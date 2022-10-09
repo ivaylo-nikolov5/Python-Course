@@ -1,7 +1,9 @@
+from collections import deque
+import sys
+
+
 BOOL_VALUE = "The value cannot be bool type of data!"
 
-import sys
-from collections import deque
 
 class EmptyList(Exception):
     pass
@@ -92,3 +94,20 @@ class Helper:
                 biggest = value
 
         return biggest
+
+    @staticmethod
+    def find_lowest(values):
+        if not values:
+            raise EmptyList("Cannot find the lowest value in an empty list!")
+
+        lowest = sys.maxsize
+        for value in values:
+            if isinstance(value, bool):
+                raise Exception(BOOL_VALUE)
+            elif isinstance(value, str) and len(value) < lowest:
+                lowest = len(value)
+                continue
+            if value < lowest:
+                lowest = value
+
+        return lowest
