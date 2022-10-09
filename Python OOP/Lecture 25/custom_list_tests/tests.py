@@ -1,10 +1,10 @@
 from unittest import TestCase, main
-
 from core.helper import EmptyList, ValueNotExist
 from custom_list.custom_list import CustomList
 
 
 INVALID_INDEX = "Invalid index!"
+
 
 class TestCustomList(TestCase):
     def setUp(self) -> None:
