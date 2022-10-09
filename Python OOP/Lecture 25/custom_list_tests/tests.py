@@ -145,7 +145,20 @@ class TestCustomList(TestCase):
         expected = {10: 20, 30: 40, 50: " "}
         self.assertEqual(expected, result)
 
+    def test_move_returns_proper_list(self):
+        self.test_list._CustomList__values = [40, 50, 10, 20, 30]
+        result = self.test_list.move(2)
+        self.assertEqual([10, 20, 30, 40, 50], result)
 
+        self.test_list._CustomList__values = [40, 50]
+        result = self.test_list.move(2)
+        self.assertEqual([40, 50], result)
+
+    def test_move_with_more_elements_than_the_length_of_the_list(self):
+        self.test_list._CustomList__values = [40, 50, 10, 20, 30]
+        with self.assertRaises(Exception) as ex:
+            self.test_list.move(6)
+        self.assertEqual("This list has not enough elements to move!", str(ex.exception))
 
 
 

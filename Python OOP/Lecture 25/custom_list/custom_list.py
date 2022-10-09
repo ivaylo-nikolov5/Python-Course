@@ -84,7 +84,11 @@ class CustomList:
         return dictionary
 
     def move(self, amount):
-        pass
+        if amount > len(self.__values):
+            raise Exception("This list has not enough elements to move!")
+        part = self.__values[:amount]
+        self.__values.extend(part)
+        return self.__values[amount:]
 
     def sum(self):
         pass
