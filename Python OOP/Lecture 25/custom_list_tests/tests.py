@@ -102,5 +102,22 @@ class TestCustomList(TestCase):
             self.test_list.index(60)
         self.assertEqual("The value is not in the list!", str(ex.exception))
 
+    def test_count_method(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50, 10, 20, 50, 10]
+        result = self.test_list.count(10)
+        self.assertEqual(3, result)
+
+    def test_reverse_with_not_empty_list(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        expected = [50, 30, 20, 10]
+        result = self.test_list.reverse()
+        self.assertEqual(expected, result)
+
+    def test_reverse_raises_with_empty_list(self):
+        with self.assertRaises(EmptyList) as ex:
+            self.test_list.reverse()
+        self.assertEqual("You cannot reverse an empty list!", str(ex.exception))
+
+
 if __name__ == '__main__':
     main()

@@ -57,10 +57,14 @@ class CustomList:
         raise ValueNotExist("The value is not in the list!")
 
     def count(self, value):
-        pass
+        result = len([x for x in self.__values if x == value])
+        return result
 
     def reverse(self):
-        pass
+        if not self.__values:
+            raise EmptyList("You cannot reverse an empty list!")
+        result = self.__values[::-1]
+        return result
 
     def copy(self):
         pass
