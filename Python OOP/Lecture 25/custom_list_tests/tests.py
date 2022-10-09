@@ -160,6 +160,17 @@ class TestCustomList(TestCase):
             self.test_list.move(6)
         self.assertEqual("This list has not enough elements to move!", str(ex.exception))
 
+    def test_sum_with_bool_object_in_the_list(self):
+        self.test_list._CustomList__values = [40, 50, True]
+        with self.assertRaises(Exception) as ex:
+            self.test_list.sum()
+        self.assertEqual("The value cannot be bool type of data!", str(ex.exception))
+
+    def test_sum_with_correct_values(self):
+        self.test_list._CustomList__values = [40, 50, 10, 20, 30]
+        result = self.test_list.sum()
+        self.assertEqual(150, result)
+
 
 
 if __name__ == '__main__':

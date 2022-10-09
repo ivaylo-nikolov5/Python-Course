@@ -91,7 +91,8 @@ class CustomList:
         return self.__values[amount:]
 
     def sum(self):
-        pass
+        sum_ = Helper.calculate_sum(self.__values)
+        return sum_
 
     def overbound(self):
         pass

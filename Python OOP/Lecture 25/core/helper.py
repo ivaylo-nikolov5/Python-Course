@@ -59,3 +59,16 @@ class Helper:
             dictionary[even_val] = odd_val
 
         return dictionary
+
+    @staticmethod
+    def calculate_sum(values):
+        sum_ = 0
+        for value in values:
+            if isinstance(value, bool):
+                raise Exception("The value cannot be bool type of data!")
+            elif isinstance(value, str):
+                sum_ += len(value)
+                continue
+            sum_ += value
+
+        return sum_
