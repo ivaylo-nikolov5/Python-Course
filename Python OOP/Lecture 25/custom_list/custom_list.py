@@ -95,7 +95,8 @@ class CustomList:
         return sum_
 
     def overbound(self):
-        pass
+        biggest = Helper.find_biggest(self.__values)
+        return biggest
 
     def underbound(self):
         pass

@@ -1,3 +1,6 @@
+BOOL_VALUE = "The value cannot be bool type of data!"
+
+import sys
 from collections import deque
 
 class EmptyList(Exception):
@@ -65,10 +68,27 @@ class Helper:
         sum_ = 0
         for value in values:
             if isinstance(value, bool):
-                raise Exception("The value cannot be bool type of data!")
+                raise Exception(BOOL_VALUE)
             elif isinstance(value, str):
                 sum_ += len(value)
                 continue
             sum_ += value
 
         return sum_
+
+    @staticmethod
+    def find_biggest(values):
+        if not values:
+            raise EmptyList("Cannot find the biggest value in an empty list!")
+
+        biggest = -sys.maxsize
+        for value in values:
+            if isinstance(value, bool):
+                raise Exception(BOOL_VALUE)
+            elif isinstance(value, str) and len(value) > biggest:
+                biggest = len(value)
+                continue
+            if value > biggest:
+                biggest = value
+
+        return biggest
