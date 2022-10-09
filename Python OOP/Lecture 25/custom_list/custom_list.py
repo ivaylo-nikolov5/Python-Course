@@ -105,5 +105,10 @@ class CustomList:
     def __str__(self):
         return str(list(self.get_list()))
 
+    def __len__(self):
+        return len(self.__values)
+
+
+
 
 
