@@ -111,6 +111,9 @@ class CustomList:
     def __reversed__(self):
         return self.reverse()
 
+    def __add__(self, other):
+        return self.__values + other.values
+
 
 
 
