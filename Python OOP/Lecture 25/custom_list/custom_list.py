@@ -75,10 +75,13 @@ class CustomList:
         return len(self.__values)
 
     def add_first(self, value):
-        pass
+        new_list = [value]
+        new_list.extend(self.get_list())
+        return new_list
 
     def dictionize(self):
-        pass
+        dictionary = Helper.return_list_as_dict(self.__values)
+        return dictionary
 
     def move(self, amount):
         pass

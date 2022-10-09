@@ -1,3 +1,5 @@
+from collections import deque
+
 class EmptyList(Exception):
     pass
 
@@ -42,3 +44,18 @@ class Helper:
             new_values.append(values[idx])
 
         return new_values
+
+    @staticmethod
+    def return_list_as_dict(values):
+        even_values = deque([values[x] for x in range(len(values)) if x % 2 == 0])
+        odd_values = deque([values[x] for x in range(len(values)) if x % 2 != 0])
+        if len(even_values) > len(odd_values):
+            odd_values.append(" ")
+        dictionary = {}
+
+        for idx in range(len(even_values)):
+            even_val = even_values[idx]
+            odd_val = odd_values[idx]
+            dictionary[even_val] = odd_val
+
+        return dictionary

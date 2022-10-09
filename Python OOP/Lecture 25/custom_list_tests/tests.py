@@ -128,5 +128,26 @@ class TestCustomList(TestCase):
         result = self.test_list.size()
         self.assertEqual(4, result)
 
+    def test_add_first_adds_the_value_at_the_first_index(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        result = self.test_list.add_first(5)
+        self.assertEqual([5, 10, 20, 30, 50], result)
+
+    def test_dictionize_with_even_count_of_elements(self):
+        self.test_list._CustomList__values = [10, 20, 30, 40, 50, 60]
+        result = self.test_list.dictionize()
+        expected = {10: 20, 30: 40, 50: 60}
+        self.assertEqual(expected, result)
+
+    def test_dictionize_with_odd_count_of_values(self):
+        self.test_list._CustomList__values = [10, 20, 30, 40, 50]
+        result = self.test_list.dictionize()
+        expected = {10: 20, 30: 40, 50: " "}
+        self.assertEqual(expected, result)
+
+
+
+
+
 if __name__ == '__main__':
     main()
