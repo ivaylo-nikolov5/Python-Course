@@ -1,3 +1,11 @@
+class EmptyList(Exception):
+    pass
+
+
+class ValueNotExist(Exception):
+    pass
+
+
 class Helper:
     @staticmethod
     def find_index(values, index):

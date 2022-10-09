@@ -24,3 +24,7 @@ except IndexError:
 
 print(custom_list.extend([2, 3, 4, 5]))
 print(custom_list.insert(2, 4))
+print(custom_list.pop())
+custom_list.clear()
+print(custom_list)
+

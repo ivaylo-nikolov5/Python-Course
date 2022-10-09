@@ -1,4 +1,6 @@
 from unittest import TestCase, main
+
+from core.helper import EmptyList, ValueNotExist
 from custom_list.custom_list import CustomList
 
 
@@ -73,6 +75,32 @@ class TestCustomList(TestCase):
             self.test_list.insert(9, 99)
         self.assertEqual(INVALID_INDEX, str(ex.exception))
 
+    def test_pop_with_not_empty_list(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        result = self.test_list.pop()
+        self.assertEqual(50, result)
+        self.assertEqual([10, 20, 30], self.test_list.get_list())
+
+    def test_pop_with_empty_list(self):
+        with self.assertRaises(EmptyList) as ex:
+            self.test_list.pop()
+        self.assertEqual("You cannot pop an item from an empty list", str(ex.exception))
+
+    def test_clear_returns_an_empty_list(self):
+        self.test_list.append(4)
+        self.test_list.clear()
+        self.assertEqual([], self.test_list.get_list())
+
+    def test_index_returns_correct_index_of_the_value(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        result = self.test_list.index(20)
+        self.assertEqual(1, result)
+
+    def test_index_raises_with_not_existing_value(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        with self.assertRaises(ValueNotExist) as ex:
+            self.test_list.index(60)
+        self.assertEqual("The value is not in the list!", str(ex.exception))
 
 if __name__ == '__main__':
     main()

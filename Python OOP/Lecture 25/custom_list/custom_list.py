@@ -1,4 +1,4 @@
-from core.helper import Helper
+from core.helper import Helper, EmptyList, ValueNotExist
 
 
 class CustomList:
@@ -41,13 +41,20 @@ class CustomList:
         return self.get_list()
 
     def pop(self):
-        pass
+        if not self.__values:
+            raise EmptyList("You cannot pop an item from an empty list")
+        value = self.__values[-1]
+        self.__values = self.__values[:-1]
+        return value
 
     def clear(self):
-        pass
+        self.__values = []
 
     def index(self, value):
-        pass
+        for idx in range(len(self.__values)):
+            if self.__values[idx] == value:
+                return idx
+        raise ValueNotExist("The value is not in the list!")
 
     def count(self, value):
         pass
@@ -78,6 +85,9 @@ class CustomList:
 
     def underbound(self):
         pass
+
+    def __str__(self):
+        return str(list(self.get_list()))
 
 
 
