@@ -118,6 +118,12 @@ class TestCustomList(TestCase):
             self.test_list.reverse()
         self.assertEqual("You cannot reverse an empty list!", str(ex.exception))
 
+    def test_copy_returns_a_proper_copy(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        result = self.test_list.copy()
+        self.assertEqual([10, 20, 30, 50], result)
+
+
 
 if __name__ == '__main__':
     main()

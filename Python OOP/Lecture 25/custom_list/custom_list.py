@@ -1,4 +1,5 @@
 from core.helper import Helper, EmptyList, ValueNotExist
+import copy
 
 
 class CustomList:
@@ -67,7 +68,8 @@ class CustomList:
         return result
 
     def copy(self):
-        pass
+        current_copy = copy.deepcopy(self.__values)
+        return current_copy
 
     def size(self):
         pass
