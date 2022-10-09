@@ -123,7 +123,10 @@ class TestCustomList(TestCase):
         result = self.test_list.copy()
         self.assertEqual([10, 20, 30, 50], result)
 
-
+    def test_size_returns_length_of_the_list(self):
+        self.test_list._CustomList__values = [10, 20, 30, 50]
+        result = self.test_list.size()
+        self.assertEqual(4, result)
 
 if __name__ == '__main__':
     main()

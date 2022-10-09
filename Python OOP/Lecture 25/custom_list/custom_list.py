@@ -72,7 +72,7 @@ class CustomList:
         return current_copy
 
     def size(self):
-        pass
+        return len(self.__values)
 
     def add_first(self, value):
         pass
