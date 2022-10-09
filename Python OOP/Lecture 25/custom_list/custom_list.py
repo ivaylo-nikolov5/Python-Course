@@ -108,6 +108,9 @@ class CustomList:
     def __len__(self):
         return len(self.__values)
 
+    def __reversed__(self):
+        return self.reverse()
+
 
 
 
