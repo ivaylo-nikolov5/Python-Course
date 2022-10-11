@@ -1,4 +1,4 @@
-from project.hardware.hardware import Hardware
+from project_.hardware.hardware import Hardware
 
 
 class PowerHardware(Hardware):

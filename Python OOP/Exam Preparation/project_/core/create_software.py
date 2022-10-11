@@ -1,5 +1,5 @@
-from project.software.express_software import ExpressSoftware
-from project.software.light_software import LightSoftware
+from project_.software.express_software import ExpressSoftware
+from project_.software.light_software import LightSoftware
 
 
 class CreateSoftware:

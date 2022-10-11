@@ -1,5 +1,5 @@
-from project.hardware.heavy_hardware import HeavyHardware
-from project.hardware.power_hardware import PowerHardware
+from project_.hardware.heavy_hardware import HeavyHardware
+from project_.hardware.power_hardware import PowerHardware
 
 
 class CreateHardware:

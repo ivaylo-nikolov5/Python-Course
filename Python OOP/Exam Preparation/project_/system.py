@@ -1,6 +1,6 @@
-from project.core.create_hardware import CreateHardware
-from project.core.create_software import CreateSoftware
-from project.core.helper import Helper
+from project_.core.create_hardware import CreateHardware
+from project_.core.create_software import CreateSoftware
+from project_.core.helper import Helper
 
 
 class System:

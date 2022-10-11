@@ -1,4 +1,4 @@
-from project.software.software import Software
+from project_.software.software import Software
 
 
 class LightSoftware(Software):
