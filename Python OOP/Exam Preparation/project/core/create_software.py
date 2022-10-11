@@ -9,6 +9,6 @@ class CreateSoftware:
     }
 
     @staticmethod
-    def create_software(name: str, capacity_consumption: int, memory_consumption: int):
-        software = CreateSoftware.create_software(name, capacity_consumption, memory_consumption)
+    def create_software(name: str, capacity_consumption: int, memory_consumption: int, software_type):
+        software = CreateSoftware.software[software_type](name, capacity_consumption, memory_consumption)
         return software

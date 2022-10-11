@@ -10,5 +10,5 @@ class CreateHardware:
 
     @staticmethod
     def create_hardware(hardware_type, name: str, capacity: int, memory: int):
-        hardware = hardware_type[CreateHardware.hardware](name, capacity, memory)
+        hardware = CreateHardware.hardware[hardware_type](name, capacity, memory)
         return hardware
