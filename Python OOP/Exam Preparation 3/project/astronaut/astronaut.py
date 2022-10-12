@@ -10,6 +10,8 @@ class Astronaut(ABC):
         self.name = name
         self.oxygen = oxygen
         self.backpack = []
+        self.successful_missions = 0
+        self.not_completed_missions = 0
 
     @property
     def name(self):
