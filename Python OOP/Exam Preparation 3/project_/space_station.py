@@ -1,10 +1,10 @@
 from collections import deque
 
-from project.astronaut.astronaut_repository import AstronautRepository
-from project.core.create_astronaut import CreateAstronaut
-from project.core.create_planet import CreatePlanet
-from project.core.helper import Helper
-from project.planet.planet_repository import PlanetRepository
+from project_.astronaut.astronaut_repository import AstronautRepository
+from project_.core.create_astronaut import CreateAstronaut
+from project_.core.create_planet import CreatePlanet
+from project_.core.helper import Helper
+from project_.planet.planet_repository import PlanetRepository
 
 
 class SpaceStation:

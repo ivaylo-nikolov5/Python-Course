@@ -1,6 +1,6 @@
-from project.astronaut.biologist import Biologist
-from project.astronaut.geodesist import Geodesist
-from project.astronaut.meteorologist import Meteorologist
+from project_.astronaut.biologist import Biologist
+from project_.astronaut.geodesist import Geodesist
+from project_.astronaut.meteorologist import Meteorologist
 
 
 class CreateAstronaut:

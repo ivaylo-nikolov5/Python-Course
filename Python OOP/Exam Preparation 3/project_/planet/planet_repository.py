@@ -1,5 +1,5 @@
-from project.core.helper import Helper
-from project.planet.planet import Planet
+from project_.core.helper import Helper
+from project_.planet.planet import Planet
 
 
 class PlanetRepository:

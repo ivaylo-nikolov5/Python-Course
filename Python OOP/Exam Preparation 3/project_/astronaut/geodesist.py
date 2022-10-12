@@ -1,4 +1,4 @@
-from project.astronaut.astronaut import Astronaut
+from project_.astronaut.astronaut import Astronaut
 
 
 class Geodesist(Astronaut):

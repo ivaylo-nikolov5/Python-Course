@@ -1,5 +1,5 @@
-from project.astronaut.astronaut import Astronaut
-from project.core.helper import Helper
+from project_.astronaut.astronaut import Astronaut
+from project_.core.helper import Helper
 
 
 class AstronautRepository:
