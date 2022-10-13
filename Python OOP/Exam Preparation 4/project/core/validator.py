@@ -23,3 +23,10 @@ class Validator:
     def check_is_race_type_is_valid(race_types, race_type, message):
         if race_type not in race_types:
             raise ValueError(message)
+
+    @staticmethod
+    def check_if_object_with_same_name_exists(objects, name):
+        for obj in objects:
+            if obj.name == name:
+                return True
+        return False
