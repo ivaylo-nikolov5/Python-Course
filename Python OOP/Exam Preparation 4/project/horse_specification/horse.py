@@ -4,6 +4,7 @@ from project.core.validator import Validator
 
 class Horse(ABC):
     MAXIMUM_SPEED = 0
+    SPEED_INCREMENT = 0
 
     def __init__(self, name: str, speed: int):
         self.name = name
@@ -29,3 +30,9 @@ class Horse(ABC):
         message = "Horse speed is too high!"
         Validator.raise_if_number_is_higher_than_limit(self.MAXIMUM_SPEED, value, message)
         self.__speed = value
+
+    def train(self):
+        if self.speed + self.SPEED_INCREMENT > self.MAXIMUM_SPEED:
+            self.speed = self.MAXIMUM_SPEED
+        else:
+            self.speed += self.SPEED_INCREMENT
