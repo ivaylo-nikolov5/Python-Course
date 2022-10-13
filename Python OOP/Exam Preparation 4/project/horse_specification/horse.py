@@ -1,4 +1,4 @@
-from abc import ABC
+from abc import ABC, abstractmethod
 from project.core.validator import Validator
 
 
@@ -6,6 +6,7 @@ class Horse(ABC):
     MAXIMUM_SPEED = 0
     SPEED_INCREMENT = 0
 
+    @abstractmethod
     def __init__(self, name: str, speed: int):
         self.name = name
         self.speed = speed
