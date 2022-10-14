@@ -37,8 +37,8 @@ class Helper:
         winner_horse = None
         highest_speed = 0
         for jockey in jockeys:
-            if jockey.horse.MAXIMUM_SPEED > highest_speed:
-                highest_speed = jockey.horse.MAXIMUM_SPEED
+            if jockey.horse.speed > highest_speed:
+                highest_speed = jockey.horse.speed
                 winner_jockey = jockey
                 winner_horse = jockey.horse
 

@@ -32,7 +32,7 @@ class HorseRaceApp:
         message = "Jockey {jockey_name} could not be found!"
         jockey = Helper.get_item_with_name(self.jockeys, jockey_name, message)
         message = f"Horse breed {horse_type} could not be found!"
-        horse = Helper.find_available_horse(self.horses, horse_type, message)
+        horse = Helper.find_available_horse(self.horses.copy(), horse_type, message)
 
         if jockey.horse is not None:
             return f"Jockey {jockey_name} already has a horse."

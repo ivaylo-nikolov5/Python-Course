@@ -7,6 +7,6 @@ class CreateHorseRace:
         for race in races:
             if race.race_type == race_type:
                 raise Exception(f"Race {race_type} has been already created!")
-
-        race = HorseRace(race_type)
-        return race
+        if race_type in ["Winter", "Spring", "Autumn", "Summer"]:
+            race = HorseRace(race_type)
+            return race
