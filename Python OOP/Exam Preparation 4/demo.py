@@ -1,4 +1,4 @@
-from project.horse_race_app import HorseRaceApp
+from project_.horse_race_app import HorseRaceApp
 
 horseRaceApp = HorseRaceApp()
 print(horseRaceApp.add_horse("Appaloosa", "Spirit", 80))

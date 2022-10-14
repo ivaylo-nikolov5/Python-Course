@@ -1,5 +1,5 @@
-from project.core.validator import Validator
-from project.jockey import Jockey
+from project_.core.validator import Validator
+from project_.jockey import Jockey
 
 
 class CreateJockey:

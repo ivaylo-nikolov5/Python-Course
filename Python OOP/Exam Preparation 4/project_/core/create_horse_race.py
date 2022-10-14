@@ -1,4 +1,4 @@
-from project.horse_race import HorseRace
+from project_.horse_race import HorseRace
 
 
 class CreateHorseRace:

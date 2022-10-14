@@ -1,8 +1,8 @@
-from project.core.create_horse import CreateHorse
-from project.core.create_horse_race import CreateHorseRace
-from project.core.create_jockey import CreateJockey
-from project.core.helper import Helper
-from project.core.validator import Validator
+from project_.core.create_horse import CreateHorse
+from project_.core.create_horse_race import CreateHorseRace
+from project_.core.create_jockey import CreateJockey
+from project_.core.helper import Helper
+from project_.core.validator import Validator
 
 
 class HorseRaceApp:

@@ -1,5 +1,5 @@
-from project.horse_specification.appaloosa import Appaloosa
-from project.horse_specification.thoroughbred import Thoroughbred
+from project_.horse_specification.appaloosa import Appaloosa
+from project_.horse_specification.thoroughbred import Thoroughbred
 
 
 class CreateHorse:
