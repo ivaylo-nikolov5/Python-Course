@@ -13,3 +13,24 @@ class Validator:
     def check_if_value_is_less_or_equal_to_zero(value, message):
         if value <= 0:
             raise ValueError(message)
+
+    @staticmethod
+    def raise_if_menu_is_not_ready(menu):
+        if len(menu) < 5:
+            raise Exception("The menu is not ready!")
+
+    @staticmethod
+    def check_if_meal_exists(meals_list, meals_orders):
+        meals_ = []
+        for searched_meal, quantity in meals_orders.items():
+            for meal in meals_list:
+                if searched_meal.name == meal.name:
+                    if quantity > meal.quantity:
+                        raise Exception(f"Not enough "
+                                        f"quantity of {meal.__class__.__name__}: {meal.name}!")
+                    meals_.append([meal, quantity])
+                    continue
+                raise Exception(f"{meal.name} is not on the menu!")
+
+        return meals_
+
