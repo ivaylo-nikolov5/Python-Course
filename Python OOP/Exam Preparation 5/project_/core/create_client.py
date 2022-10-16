@@ -1,4 +1,4 @@
-from project.client import Client
+from project_.client import Client
 
 
 class CreateClient:

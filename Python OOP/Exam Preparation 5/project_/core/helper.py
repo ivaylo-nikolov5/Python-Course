@@ -1,4 +1,4 @@
-from project.core.create_client import CreateClient
+from project_.core.create_client import CreateClient
 
 
 class Helper:

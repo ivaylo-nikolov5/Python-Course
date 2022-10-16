@@ -1,4 +1,4 @@
-from project.meals.meal import Meal
+from project_.meals.meal import Meal
 
 
 class Starter(Meal):

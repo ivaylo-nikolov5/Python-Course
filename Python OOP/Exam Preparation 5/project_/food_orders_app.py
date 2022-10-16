@@ -1,7 +1,7 @@
-from project.core.create_client import CreateClient
-from project.core.helper import Helper
-from project.core.validator import Validator
-from project.meals.meal import Meal
+from project_.core.create_client import CreateClient
+from project_.core.helper import Helper
+from project_.core.validator import Validator
+from project_.meals.meal import Meal
 
 
 class FoodOrdersApp:

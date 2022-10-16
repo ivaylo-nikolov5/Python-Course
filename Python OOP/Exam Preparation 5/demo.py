@@ -1,7 +1,7 @@
-from project.food_orders_app import FoodOrdersApp
-from project.meals.starter import Starter
-from project.meals.dessert import Dessert
-from project.meals.main_dish import MainDish
+from project_.food_orders_app import FoodOrdersApp
+from project_.meals.starter import Starter
+from project_.meals.dessert import Dessert
+from project_.meals.main_dish import MainDish
 
 food_orders_app = FoodOrdersApp()
 print(food_orders_app.register_client("0899999999"))
@@ -27,3 +27,6 @@ additional_food = {"Risotto with Wild Mushrooms": 2,
 print(food_orders_app.add_meals_to_shopping_cart('0899999999', **additional_food))
 print(food_orders_app.finish_order("0899999999"))
 print(food_orders_app)
+print(food_orders_app.register_client("0897777777"))
+print(food_orders_app.add_meals_to_shopping_cart('0897777777', **food))
+print(food_orders_app.finish_order("0897777777"))
