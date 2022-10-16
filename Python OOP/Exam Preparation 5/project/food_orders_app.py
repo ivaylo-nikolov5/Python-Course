@@ -38,14 +38,15 @@ class FoodOrdersApp:
 
         bill = 0
         for meal, quantity in meals:
-            meal_in_menu = Helper.get_meal(self.menu, meal)
-            client.shopping_cart.append(meal_in_menu)
-            bill += meal_in_menu.price * quantity
-            self.menu[meal_in_menu].quantity -= quantity
+            client.shopping_cart.append(meal)
+            bill += meal.price * quantity
+            index = self.menu.index(meal)
+            meal = self.menu[index]
+            meal.quantity -= quantity
 
         client.bill += bill
-        meal_names = ", ".join(meal[0].name for meal in meals)
-        return f"Client {client_phone_number} successfully ordered {meal_names} for {bill}lv."
+        meal_names = ", ".join(meal.name for meal in client.shopping_cart)
+        return f"Client {client_phone_number} successfully ordered {meal_names} for {client.bill:.2f}lv."
 
     def cancel_order(self, client_phone_number: str):
         client = Helper.check_if_client_exists(self.clients_list, client_phone_number)[1]
@@ -61,7 +62,7 @@ class FoodOrdersApp:
         bill = client.bill
         client.bill = 0
         FoodOrdersApp.receipt_id += 1
-        return f"Receipt #{FoodOrdersApp.receipt_id} with total amount of {bill} was successfully paid for {client_phone_number}."
+        return f"Receipt #{FoodOrdersApp.receipt_id} with total amount of {bill:.2f} was successfully paid for {client_phone_number}."
 
     def __str__(self):
         return f"Food Orders App has {len(self.menu)} meals on the menu and {len(self.clients_list)} clients."

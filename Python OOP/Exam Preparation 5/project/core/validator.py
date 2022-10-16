@@ -24,13 +24,15 @@ class Validator:
         meals_ = []
         for searched_meal, quantity in meals_orders.items():
             for meal in meals_list:
-                if searched_meal.name == meal.name:
+                if searched_meal == meal.name:
                     if quantity > meal.quantity:
                         raise Exception(f"Not enough "
                                         f"quantity of {meal.__class__.__name__}: {meal.name}!")
                     meals_.append([meal, quantity])
-                    continue
-                raise Exception(f"{meal.name} is not on the menu!")
+                    break
+            else:
+                raise Exception(f"{searched_meal} is not on the menu!")
+
 
         return meals_
 
