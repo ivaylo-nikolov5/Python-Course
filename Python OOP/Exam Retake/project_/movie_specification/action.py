@@ -1,5 +1,5 @@
-from project.core.validator import Validator
-from project.movie_specification.movie import Movie
+from project_.core.validator import Validator
+from project_.movie_specification.movie import Movie
 
 
 class Action(Movie):
