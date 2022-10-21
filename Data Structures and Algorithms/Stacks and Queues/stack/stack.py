@@ -8,6 +8,9 @@ class Stack:
     def get_stack(self):
         return self.__stack
 
+    def push(self, item):
+        self.__stack.append(item)
+
     def pop(self):
         if not self.__stack:
             raise EmptyStack("You cannot pop an item from an empty stack!")
