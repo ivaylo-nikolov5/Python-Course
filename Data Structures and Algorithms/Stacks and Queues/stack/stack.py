@@ -16,3 +16,6 @@ class Stack:
             raise EmptyStack("You cannot pop an item from an empty stack!")
         item = self.__stack.pop()
         return item
+
+    def peek(self):
+        return self.__stack[-1]
