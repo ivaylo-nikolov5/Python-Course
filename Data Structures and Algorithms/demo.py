@@ -1,17 +1,13 @@
-from stack.stack import Stack
+from queue.queue import Queue
 
-stack = Stack()
-stack.push(2)
-stack.push(4)
-stack.push(5)
-stack.push(8)
+queue = Queue()
+queue.enqueue(10)
+queue.enqueue(34)
+queue.enqueue(15)
+queue.enqueue(38)
 
-stack2 = Stack()
-stack2.push(1)
-stack2.push(5)
-stack2.push(7)
-stack2.push(9)
-
-print(stack + stack2)
-
-
+print(queue.get_queue())
+print(queue.peek())
+print(queue.dequeue())
+print(queue.dequeue())
+print(queue.get_queue())
