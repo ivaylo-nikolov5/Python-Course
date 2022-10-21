@@ -18,4 +18,6 @@ class Stack:
         return item
 
     def peek(self):
+        if not self.__stack:
+            raise EmptyStack("The stack is empty!")
         return self.__stack[-1]
