@@ -19,3 +19,5 @@ class Queue:
     def peek(self):
         return self.__queue[0]
 
+    def queue_size(self):
+        return len(self.__queue)
