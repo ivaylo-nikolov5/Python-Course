@@ -1,13 +1,17 @@
-from queue.queue import Queue
+from binary_search_tree import BinarySearchTree
 
-queue = Queue()
-queue.enqueue(10)
-queue.enqueue(34)
-queue.enqueue(15)
-queue.enqueue(38)
+tree = BinarySearchTree()
+tree.insert(100)
+tree.insert(50)
+tree.insert(25)
+tree.insert(75)
+tree.insert(150)
+tree.insert(125)
+tree.insert(175)
 
-print(queue.get_queue())
-print(queue.peek())
-print(queue.dequeue())
-print(queue.dequeue())
-print(queue.get_queue())
+
+print(tree.get_min_value())
+print(tree.get_max_value())
+tree.traverse()
+tree.remove(100)
+tree.traverse()
