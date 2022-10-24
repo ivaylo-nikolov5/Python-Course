@@ -9,4 +9,8 @@ bsr.insert(45)
 bsr.insert(260)
 bsr.insert(76)
 
-bsr.traverse()
+
+print(bsr.is_exists(100))
+print(bsr.is_exists(20))
+print(bsr.is_exists(220))
+
