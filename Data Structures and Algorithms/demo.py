@@ -44,6 +44,30 @@ class BinarySearchTree:
         if node.right_value:
             self.__traverse_in_order(node.right_value)
 
+    def traverse_preorder(self):
+        Helper.return_if_tree_is_empty(self.__root)
+        return self.__traverse_preorder_by_node(self.__root)
+
+    def __traverse_preorder_by_node(self, node):
+        if node.value:
+            print(node.value)
+        if node.left_value:
+            self.__traverse_preorder_by_node(node.left_value)
+        if node.right_value:
+            self.__traverse_preorder_by_node(node.right_value)
+
+    def traverse_postorder(self):
+        Helper.return_if_tree_is_empty(self.__root)
+        return self.__traverse_postorder_by_node(self.__root)
+
+    def __traverse_postorder_by_node(self, node):
+        if node.left_value:
+            self.__traverse_postorder_by_node(node.left_value)
+        if node.right_value:
+            self.__traverse_postorder_by_node(node.right_value)
+        if node.value:
+            print(node.value)
+
     def get_min(self):
         Helper.return_if_tree_is_empty(self.__root)
         return self.__get_min_value(self.__root)
@@ -112,3 +136,6 @@ class BinarySearchTree:
                 self.__temp = self.__temp.right_value
             else:
                 return True
+
+
+

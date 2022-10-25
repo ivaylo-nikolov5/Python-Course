@@ -10,7 +10,5 @@ bsr.insert(260)
 bsr.insert(76)
 
 
-print(bsr.is_exists(100))
-print(bsr.is_exists(20))
-print(bsr.is_exists(220))
+bsr.traverse_postorder()
 
