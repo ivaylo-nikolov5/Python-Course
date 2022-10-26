@@ -1,13 +1,10 @@
-def recursive_drawing(start, stop, symbol):
-    if symbol == "*":
-        for i in range(start, stop, -1):
-            print(symbol * i)
+def draw_recursion(n):
+    if n == 0:
+        return
 
-        return recursive_drawing(1, start, "#")
+    print("*" * n)
+    draw_recursion(n - 1)
+    print("#" * n)
 
-    for i in range(start, stop + 1):
-        print(symbol * i)
-
-
-rows = int(input())
-recursive_drawing(rows, 0, "*")
+a = int(input())
+draw_recursion(a)
