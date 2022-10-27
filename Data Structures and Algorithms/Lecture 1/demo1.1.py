@@ -1,28 +1,47 @@
-def find_all_paths(lab, row, col, direction, path):
-    if row < 0 or col < 0:
+def print_board(board):
+    for row in board:
+        print(*row, sep=" ")
+    print()
+
+
+def can_place(row, col, rows, cols, left_diagonals, right_diagonals):
+    if row in rows or col in cols:
+        return False
+    elif (row - col) in left_diagonals:
+        return False
+    elif (row + col) in right_diagonals:
+        return False
+    return True
+
+
+def place_queen(board, row, col, rows, cols, left_diagonals, right_diagonals):
+    board[row][col] = "*"
+    rows.add(row)
+    cols.add(col)
+    left_diagonals.add(row - col)
+    right_diagonals.add(row + col)
+
+
+def remove_queen(board, row, col, rows, cols, left_diagonals, right_diagonals):
+    board[row][col] = "-"
+    rows.remove(row)
+    cols.remove(col)
+    left_diagonals.remove(row - col)
+    right_diagonals.remove(row + col)
+
+
+def place_queens(row, board, rows, cols, left_diagonals, right_diagonals):
+    if row == 8:
+        print_board(board)
         return
-    elif row >= len(lab) or col >= len(lab[0]):
-        return
-    elif lab[row][col] == "v" or lab[row][col] == "*":
-        return
 
-    path.append(direction)
-
-    if lab[row][col] == "e":
-        print(*path, sep="")
-    else:
-        lab[row][col] = "v"
-        find_all_paths(lab, row, col + 1, "R", path)
-        find_all_paths(lab, row, col - 1, "L", path)
-        find_all_paths(lab, row + 1, col, "D", path)
-        find_all_paths(lab, row - 1, col, "U", path)
-        lab[row][col] = "-"
-
-    path.pop()
+    for col in range(8):
+        if can_place(row, col, rows, cols, left_diagonals, right_diagonals):
+            place_queen(board, row, col, rows, cols, left_diagonals, right_diagonals)
+            place_queens(row + 1, board, rows, cols, left_diagonals, right_diagonals)
+            remove_queen(board, row, col, rows, cols, left_diagonals, right_diagonals)
 
 
-rows = int(input())
-cols = int(input())
-
-field = [[x for x in input()] for _ in range(rows)]
-find_all_paths(field, 0, 0, "", [])
+rows = 8
+matrix = [["-" for _ in range(rows)] for _ in range(rows)]
+place_queens(0, matrix, set(), set(), set(), set())
