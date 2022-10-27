@@ -30,7 +30,6 @@ def remove_queen(row, col, board, rows, cols, left_diagonals, right_diagonals):
     right_diagonals.remove(row + col)
 
 
-
 def put_queens(row, board, rows, cols, left_diagonals, right_diagonals):
     if row == 8:
         print_board(board)
