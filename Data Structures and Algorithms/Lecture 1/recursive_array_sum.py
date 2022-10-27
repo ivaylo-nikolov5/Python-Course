@@ -1,8 +1,8 @@
-def array_sum(array_, idx):
-    if idx == len(array_) - 1:
-        return array_[idx]
-    return array_[idx] + array_sum(array_, idx + 1)
+def recursive_array_sum(array, idx):
+    if idx == len(array) - 1:
+        return array[idx]
+    return array[idx] + recursive_array_sum(array, idx + 1)
 
 
-array = [int(x) for x in input().split()]
-print(array_sum(array, 0))
+numbers = [int(x) for x in input().split()]
+print(recursive_array_sum(numbers, 0))

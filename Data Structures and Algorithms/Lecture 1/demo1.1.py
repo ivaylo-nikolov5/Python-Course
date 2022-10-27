@@ -1,8 +1,8 @@
-def recursive_array_sum(array, idx):
-    if idx == len(array) - 1:
-        return array[idx]
-    return array[idx] + recursive_array_sum(array, idx + 1)
+def recursive_factorial(n):
+    if n == 0:
+        return 1
+    return n * recursive_factorial(n - 1)
 
 
-numbers = [int(x) for x in input().split()]
-print(recursive_array_sum(numbers, 0))
+number = int(input())
+print(recursive_factorial(number))
