@@ -1,10 +1,12 @@
-def recursive_number_power(n, p):
-    if p == 1:
+def recursive_lcm(n, m):
+    if n % m == 0:
+        return m
+    elif m % n == 0:
         return n
-    return n * recursive_number_power(n, p - 1)
+    return m * n
 
 
-number = int(input())
-power = int(input())
-print(recursive_number_power(number, power))
+number1 = int(input())
+number2 = int(input())
 
+print(recursive_lcm(number1, number2))
