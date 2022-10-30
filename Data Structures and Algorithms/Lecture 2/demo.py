@@ -1,22 +1,41 @@
-def find_all_paths(row, col, field):
-    if row < 0 or col < 0 or row >= len(field) or col >= len(field[0]):
-        return 0
-    elif row == len(field) - 1 and col == len(field[0]) - 1:
-        return 1
+class Result:
+    def __init__(self, row, col, size):
+        self.row = row
+        self.col = col
+        self.size = size
 
-    field[row][col] = "v"
 
-    result = 0
-    result += find_all_paths(row, col + 1, field)
-    result += find_all_paths(row + 1, col, field)
+def connected_areas(r, c, ma):
+    if r < 0 or c < 0 or r >= len(ma) or c >= len(ma[0]):
+        return [r, c, 0]
+    elif ma[r][c] != "-":
+        return [r, c, 0]
 
-    field[row][col] = None
+    ma[r][c] = "v"
+    result = 1
+    result += connected_areas(r, c + 1, ma)[2]
+    result += connected_areas(r, c - 1, ma)[2]
+    result += connected_areas(r + 1, c, ma)[2]
+    result += connected_areas(r - 1, c, ma)[2]
 
-    return result
+    return [r, c, result]
 
 
 n = int(input())
 m = int(input())
 
-matrix = [[None for _ in range(m)] for _ in range(n)]
-print(find_all_paths(0, 0, matrix))
+matrix = [[x for x in input()] for _ in range(n)]
+areas = []
+
+for row in range(n):
+    for col in range(m):
+        r, c, size = connected_areas(row, col, matrix)
+        if size > 0:
+            areas.append(Result(r, c, size))
+
+areas = list(sorted(areas, key=lambda x: -x.size))
+print(f"Total areas found: {len(areas)}")
+idx = 1
+for area in areas:
+    print(f"Area #{idx} at ({area.row}, {area.col}), size: {area.size}")
+    idx += 1
