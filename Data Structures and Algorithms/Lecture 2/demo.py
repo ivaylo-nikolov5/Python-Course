@@ -1,41 +1,43 @@
-class Result:
-    def __init__(self, row, col, size):
-        self.row = row
-        self.col = col
-        self.size = size
+def find_all_combinations(idx, target, words_by_index, words_repeat, combinations):
+    if idx >= len(target):
+        print(*combinations, sep=" ")
+        return
+    if idx not in words_by_index:
+        return
+    for word in words_by_index[idx]:
+        if words_repeat[word] == 0:
+            continue
+
+        combinations.append(word)
+        words_repeat[word] -= 1
+
+        find_all_combinations(idx + len(word), target, words_by_index, words_repeat, combinations)
+
+        combinations.pop()
+        words_repeat[word] += 1
+
+elements = input().split(", ")
+target = input()
+
+words_by_index = {}
+words_repeat = {}
+
+for el in elements:
+    if el in words_repeat:
+        words_repeat[el] += 1
+        continue
+    words_repeat[el] = 1
+
+    try:
+        idx = 0
+        while True:
+            idx = target.index(el, idx)
+            if idx not in words_by_index:
+                words_by_index[idx] = []
+            words_by_index[idx].append(el)
+            idx += len(el)
+    except ValueError:
+        pass
 
 
-def connected_areas(r, c, ma):
-    if r < 0 or c < 0 or r >= len(ma) or c >= len(ma[0]):
-        return [r, c, 0]
-    elif ma[r][c] != "-":
-        return [r, c, 0]
-
-    ma[r][c] = "v"
-    result = 1
-    result += connected_areas(r, c + 1, ma)[2]
-    result += connected_areas(r, c - 1, ma)[2]
-    result += connected_areas(r + 1, c, ma)[2]
-    result += connected_areas(r - 1, c, ma)[2]
-
-    return [r, c, result]
-
-
-n = int(input())
-m = int(input())
-
-matrix = [[x for x in input()] for _ in range(n)]
-areas = []
-
-for row in range(n):
-    for col in range(m):
-        r, c, size = connected_areas(row, col, matrix)
-        if size > 0:
-            areas.append(Result(r, c, size))
-
-areas = list(sorted(areas, key=lambda x: -x.size))
-print(f"Total areas found: {len(areas)}")
-idx = 1
-for area in areas:
-    print(f"Area #{idx} at ({area.row}, {area.col}), size: {area.size}")
-    idx += 1
+find_all_combinations(0, target, words_by_index, words_repeat, [])
