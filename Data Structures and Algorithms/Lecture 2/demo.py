@@ -1,14 +1,22 @@
-def nested_loops(n, combinations):
-    if len(combinations) == n:
-        print(*combinations, sep=" ")
-        return
+def find_all_paths(row, col, field):
+    if row < 0 or col < 0 or row >= len(field) or col >= len(field[0]):
+        return 0
+    elif row == len(field) - 1 and col == len(field[0]) - 1:
+        return 1
 
-    for idx in range(1, n + 1):
-        combinations.append(idx)
-        nested_loops(n, combinations)
-        combinations.pop()
+    field[row][col] = "v"
+
+    result = 0
+    result += find_all_paths(row, col + 1, field)
+    result += find_all_paths(row + 1, col, field)
+
+    field[row][col] = None
+
+    return result
 
 
-number = int(input())
+n = int(input())
+m = int(input())
 
-nested_loops(number, [])
+matrix = [[None for _ in range(m)] for _ in range(n)]
+print(find_all_paths(0, 0, matrix))
