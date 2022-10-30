@@ -1,10 +1,14 @@
-def reverse_array(arr, idx):
-    if idx == len(arr) // 2:
-        print(*arr, sep=" ")
+def nested_loops(n, combinations):
+    if len(combinations) == n:
+        print(*combinations, sep=" ")
         return
-    arr[idx], arr[-idx - 1] = arr[-idx - 1], arr[idx]
-    reverse_array(arr, idx + 1)
+
+    for idx in range(1, n + 1):
+        combinations.append(idx)
+        nested_loops(n, combinations)
+        combinations.pop()
 
 
-array = input().split()
-reverse_array(array, 0)
+number = int(input())
+
+nested_loops(number, [])
