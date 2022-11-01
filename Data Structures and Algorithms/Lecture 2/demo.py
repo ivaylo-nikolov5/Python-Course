@@ -1,43 +1,45 @@
-class Area:
-    def __init__(self, row, col, size):
-        self.row = row
-        self.col = col
-        self.size = size
+def word_cruncher(idx, target, words_by_idx, words_repeat, used_words):
+    if idx >= len(target):
+        print(*used_words, sep=" ")
+        return
+    elif idx not in words_by_idx:
+        return
 
-
-def find_connected_areas(r, c, ma):
-    if r < 0 or c < 0 or r >= len(ma) or c >= len(ma[0]):
-        return [r, c, 0]
-    elif ma[r][c] != "-":
-        return [r, c, 0]
-
-    ma[r][c] = "v"
-    result = 1
-    result += find_connected_areas(r, c + 1, ma)[2]
-    result += find_connected_areas(r, c - 1, ma)[2]
-    result += find_connected_areas(r + 1, c, ma)[2]
-    result += find_connected_areas(r - 1, c, ma)[2]
-
-    return [r, c, result]
-
-
-n = int(input())
-m = int(input())
-
-matrix = [[x for x in input()] for _ in range(n)]
-areas = []
-
-for row in range(n):
-    for col in range(m):
-        r, c, size = find_connected_areas(row, col, matrix)
-        if size <= 0:
+    for word in words_by_idx[idx]:
+        if words_repeat[word] == 0:
             continue
-        areas.append(Area(r, c, size))
+        used_words.append(word)
+        words_repeat[word] -= 1
 
-areas = list(sorted(areas, key=lambda x: -x.size))
-area_number = 1
+        word_cruncher(idx + len(word), target, words_by_idx, words_repeat, used_words)
 
-print(f"Total areas found: {len(areas)}")
-for x in areas:
-    print(f"Area #{area_number} at ({x.row}, {x.col}), size: {x.size}")
-    area_number += 1
+        used_words.pop()
+        words_repeat[word] += 1
+
+
+
+elements = input().split(", ")
+target = input()
+
+words_by_idx = {}
+words_repeat = {}
+
+for el in elements:
+    if el in words_repeat:
+        words_repeat[el] += 1
+        continue
+
+    words_repeat[el] = 1
+
+    try:
+        idx = 0
+        while True:
+            idx = target.index(el, idx)
+            if idx not in words_by_idx:
+                words_by_idx[idx] = []
+            words_by_idx[idx].append(el)
+            idx += len(el)
+    except ValueError:
+        pass
+
+word_cruncher(0, target, words_by_idx, words_repeat, [])
