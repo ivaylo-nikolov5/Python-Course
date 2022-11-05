@@ -59,16 +59,28 @@
 #
 # print(*bubble_sort(numbers), sep=" ")
 
-def insertion_sort(nums):
-    for i in range(len(nums)):
-        for j in range(i, 0, -1):
-            if nums[j] < nums[j - 1]:
-                nums[j], nums[j - 1] = nums[j - 1], nums[j]
+def quicksort(start, end, nums):
+    if start >= end:
+        return
 
-    return nums
+    pivot = start
+    left = start + 1
+    right = end
 
+    while left <= right:
+        if nums[left] > nums[pivot] > nums[right]:
+            nums[left], nums[right] = nums[right], nums[left]
+        if nums[left] <= nums[pivot]:
+            left += 1
+        if nums[right] >= nums[pivot]:
+            right -= 1
+
+    nums[pivot], nums[right] = nums[right], nums[pivot]
+    quicksort(start, right - 1, nums)
+    quicksort(right + 1, end, nums)
 
 
 numbers = [int(x) for x in input().split()]
 
-print(*insertion_sort(numbers), sep=" ")
+quicksort(0, len(numbers) - 1, numbers)
+print(*numbers, end=" ")
