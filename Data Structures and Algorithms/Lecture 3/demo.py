@@ -26,15 +26,35 @@
 ##################################################################################################
 
 
-def selection_sort(nums):
+# def selection_sort(nums):
+#     for i in range(len(nums)):
+#         for j in range(i, len(nums)):
+#             if nums[j] < nums[i]:
+#                 nums[i], nums[j] = nums[j], nums[i]
+#
+#     return nums
+#
+#
+# numbers = [int(x) for x in input().split()]
+#
+# print(*selection_sort(numbers), sep=" ")
+
+def bubble_sort(nums):
     for i in range(len(nums)):
-        for j in range(i, len(nums)):
-            if nums[j] < nums[i]:
+        i = 0
+        swaps = 0
+        for j in range(1, len(nums)):
+            if nums[i] > nums[j]:
                 nums[i], nums[j] = nums[j], nums[i]
+                swaps += 1
+            i += 1
+
+        if swaps == 0:
+            return nums
 
     return nums
 
 
 numbers = [int(x) for x in input().split()]
 
-print(*selection_sort(numbers), sep=" ")
+print(*bubble_sort(numbers), sep=" ")
