@@ -39,22 +39,36 @@
 #
 # print(*selection_sort(numbers), sep=" ")
 
-def bubble_sort(nums):
-    for i in range(len(nums)):
-        i = 0
-        swaps = 0
-        for j in range(1, len(nums)):
-            if nums[i] > nums[j]:
-                nums[i], nums[j] = nums[j], nums[i]
-                swaps += 1
-            i += 1
+# def bubble_sort(nums):
+#     for i in range(len(nums)):
+#         i = 0
+#         swaps = 0
+#         for j in range(1, len(nums)):
+#             if nums[i] > nums[j]:
+#                 nums[i], nums[j] = nums[j], nums[i]
+#                 swaps += 1
+#             i += 1
+#
+#         if swaps == 0:
+#             return nums
+#
+#     return nums
+#
+#
+# numbers = [int(x) for x in input().split()]
+#
+# print(*bubble_sort(numbers), sep=" ")
 
-        if swaps == 0:
-            return nums
+def insertion_sort(nums):
+    for i in range(len(nums)):
+        for j in range(i, 0, -1):
+            if nums[j] < nums[j - 1]:
+                nums[j], nums[j - 1] = nums[j - 1], nums[j]
 
     return nums
 
 
+
 numbers = [int(x) for x in input().split()]
 
-print(*bubble_sort(numbers), sep=" ")
+print(*insertion_sort(numbers), sep=" ")
