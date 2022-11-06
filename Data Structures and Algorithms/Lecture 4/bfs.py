@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def bfs(node, graph, queue, visited):
+def bfs(node, graph, visited):
     if node in visited:
         return
 
@@ -10,10 +10,10 @@ def bfs(node, graph, queue, visited):
 
     while queue:
         n = queue.popleft()
-        print(n)
+        print(n, end=" ")
         for child in graph[n]:
             if child not in visited:
-                print(child)
+                print(child, end=" ")
                 visited.add(child)
 
     return visited
@@ -34,4 +34,4 @@ queue = deque()
 visited = set()
 
 for node in graph:
-    bfs(node, graph, queue, visited)
+    bfs(node, graph, visited)
