@@ -8,6 +8,7 @@ def dfs(node, graph, visited):
 
     print(node, end=" ")
 
+
 graph = {
     1: [19, 21, 14],
     19: [7, 12, 31, 21],
