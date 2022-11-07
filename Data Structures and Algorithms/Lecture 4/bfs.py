@@ -5,18 +5,15 @@ def bfs(node, graph, visited):
     if node in visited:
         return
 
-    queue.appendleft(node)
+    queue = deque([node])
     visited.add(node)
 
     while queue:
-        n = queue.popleft()
-        print(n, end=" ")
-        for child in graph[n]:
+        print(queue.popleft(), end=" ")
+        for child in graph[node]:
             if child not in visited:
-                print(child, end=" ")
+                queue.append(child)
                 visited.add(child)
-
-    return visited
 
 graph = {
     7: [19, 21, 14],
@@ -30,7 +27,6 @@ graph = {
     6: []
 }
 
-queue = deque()
 visited = set()
 
 for node in graph:
