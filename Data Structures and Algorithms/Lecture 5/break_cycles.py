@@ -33,15 +33,16 @@ for _ in range(lines):
 
 
 for source, destination in sorted(edges, key=lambda x: (x[0], x[1])):
-    if destination in graph[source] and source in graph[destination]:
-        graph[source].remove(destination)
-        graph[destination].remove(source)
+    if destination not in graph[source] or source not in graph[destination]:
+        continue
+    graph[source].remove(destination)
+    graph[destination].remove(source)
 
-        if path_exists(source, destination, graph):
-            edges_to_remove.append((source, destination))
-        else:
-            graph[source].append(destination)
-            graph[destination].append(source)
+    if path_exists(source, destination, graph):
+        edges_to_remove.append((source, destination))
+    else:
+        graph[source].append(destination)
+        graph[destination].append(source)
 
 print(f"Edges to remove: {len(edges_to_remove)}")
 
