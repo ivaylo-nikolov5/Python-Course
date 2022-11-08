@@ -43,7 +43,6 @@ for source, destination in sorted(edges, key=lambda x: (x[0], x[1])):
             graph[source].append(destination)
             graph[destination].append(source)
 
-
 print(f"Edges to remove: {len(edges_to_remove)}")
 
 for x, y in edges_to_remove:
