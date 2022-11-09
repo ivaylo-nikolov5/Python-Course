@@ -1,38 +1,52 @@
-def dfs(node, graph, salaries):
-    result = 0
+def dfs(node, destination, graph, visited):
+    if node in visited:
+        return
 
-    if salaries[node]:
-         return salaries[node]
+    visited.add(node)
 
-    if not graph[node]:
-        return 1
+    if node == destination:
+        return
 
     for child in graph[node]:
-        result += dfs(child, graph, salaries)
+        dfs(child, destination, graph, visited)
 
-    salaries[node] = result
-    return result
+
+def path_exists(source, destination, graph):
+    visited = set()
+
+    dfs(source, destination, graph, visited)
+
+    return destination in visited
 
 
 lines = int(input())
 
-graph = []
-salaries = [None] * lines
+graph = {}
+edges = []
+edges_to_remove = []
 
 for _ in range(lines):
-    line = [x for x in input()]
-    children = []
+    line = input().split(" -> ")
+    node = line[0]
+    children = [x for x in line[1].split()]
+    graph[node] = children
+    for child in children:
+        edges.append((node, child))
 
-    for child in range(len(line)):
-        if line[child] == "Y":
-            children.append(child)
+for source, destination in list(sorted(edges, key=lambda x: (x[0], x[1]))):
+    if source not in graph[destination] or destination not in graph[source]:
+        continue
 
-    graph.append(children)
+    graph[source].remove(destination)
+    graph[destination].remove(source)
 
-total_salary = 0
+    if path_exists(source, destination, graph):
+        edges_to_remove.append((source, destination))
+    else:
+        graph[source].append(destination)
+        graph[destination].append(source)
 
-for node in range(len(graph)):
-    result = dfs(node, graph, salaries)
-    total_salary += result
+print(f"Edges to remove: {len(edges_to_remove)}")
 
-print(total_salary)
+for x, y in edges_to_remove:
+    print(f"{x} - {y}")
