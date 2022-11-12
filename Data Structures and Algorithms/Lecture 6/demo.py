@@ -1,6 +1,3 @@
-from collections import deque
-
-
 class Edge:
     def __init__(self, source, destination, weight):
         self.source = source
@@ -8,57 +5,36 @@ class Edge:
         self.weight = weight
 
 
-nodes = int(input())
+def find_root(parent, element):
+    while element != parent[element]:
+        element = parent[element]
+
+    return element
+
+
 edges = int(input())
 
 graph = []
 
+max_node = float("-inf")
+
 for _ in range(edges):
-    source, destination, weight = [int(x) for x in input().split()]
+    source, destination, weight = [int(x) for x in input().split(", ")]
     graph.append(Edge(source, destination, weight))
+    max_node = max(source, destination, max_node)
 
-start = int(input())
-end = int(input())
+parent = [x for x in range(max_node + 1)]
 
-distance = [float("inf")] * (nodes + 1)
-distance[start] = 0
+forest = []
 
-parent = [None] * (nodes + 1)
+for edge in sorted(graph, key=lambda x: x.weight):
+    first_root_node = find_root(parent, edge.source)
+    second_root_node = find_root(parent, edge.destination)
 
-for _ in range(nodes - 1):
-    updated = False
+    if first_root_node != second_root_node:
+        parent[first_root_node] = second_root_node
+        forest.append(edge)
 
-    for edge in graph:
-        if distance[edge.source] == float("inf"):
-            continue
-        new_distance = distance[edge.source] + edge.weight
-        if new_distance < distance[edge.destination]:
-            distance[edge.destination] = new_distance
-            parent[edge.destination] = edge.source
-            updated = True
-
-    if not updated:
-        break
-
-
-updated = False
-for edge in graph:
-    new_distance = distance[edge.source] + edge.weight
-    if new_distance < distance[edge.destination]:
-        distance[edge.destination] = new_distance
-        parent[edge.destination] = edge.source
-        updated = True
-
-if updated:
-    print("Negative Cycle Detected")
-else:
-    path = deque()
-    node = end
-
-    while node:
-        path.appendleft(node)
-        node = parent[node]
-
-    print(*path, sep=" ")
-    print(distance[end])
+for edge in forest:
+    print(f"{edge.source} - {edge.destination}")
 
