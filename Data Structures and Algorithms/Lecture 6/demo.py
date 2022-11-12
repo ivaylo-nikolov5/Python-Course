@@ -1,40 +1,66 @@
+from queue import PriorityQueue
+
+
 class Edge:
-    def __init__(self, source, destination, weight):
-        self.source = source
-        self.destination = destination
+    def __init__(self, first, second, weight):
+        self.first = first
+        self.second = second
         self.weight = weight
 
+    def __gt__(self, other):
+        return self.weight > other.weight
 
-def find_root(parent, element):
-    while element != parent[element]:
-        element = parent[element]
 
-    return element
+def prim(node, graph, forest, forest_edges):
+    forest.add(node)
+    pq = PriorityQueue()
+
+    for edge in graph[node]:
+        pq.put(edge)
+
+    while not pq.empty():
+        min_edge = pq.get()
+        non_tree_node = "default"
+
+        if min_edge.first in forest and min_edge.second not in forest:
+            non_tree_node = min_edge.second
+        elif min_edge.first not in forest and min_edge.second in forest:
+            non_tree_node = min_edge.first
+
+        if non_tree_node == "default":
+            continue
+
+        forest.add(non_tree_node)
+        forest_edges.append(min_edge)
+
+        for edge in graph[non_tree_node]:
+            pq.put(edge)
+
 
 
 edges = int(input())
 
-graph = []
-
-max_node = float("-inf")
+graph = {}
 
 for _ in range(edges):
-    source, destination, weight = [int(x) for x in input().split(", ")]
-    graph.append(Edge(source, destination, weight))
-    max_node = max(source, destination, max_node)
+    first, second, weight = [int(x) for x in input().split(", ")]
+    if first not in graph:
+        graph[first] = []
+    if second not in graph:
+        graph[second] = []
 
-parent = [x for x in range(max_node + 1)]
+    edge = Edge(first, second, weight)
 
-forest = []
+    graph[first].append(edge)
+    graph[second].append(edge)
 
-for edge in sorted(graph, key=lambda x: x.weight):
-    first_root_node = find_root(parent, edge.source)
-    second_root_node = find_root(parent, edge.destination)
+forest = set()
+forest_edges = []
 
-    if first_root_node != second_root_node:
-        parent[first_root_node] = second_root_node
-        forest.append(edge)
+for node in graph:
+    if node in forest:
+        continue
+    prim(node, graph, forest, forest_edges)
 
-for edge in forest:
-    print(f"{edge.source} - {edge.destination}")
-
+for edge in forest_edges:
+    print(f"{edge.first} - {edge.second}")
