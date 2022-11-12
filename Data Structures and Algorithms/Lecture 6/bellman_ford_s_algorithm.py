@@ -36,7 +36,7 @@ for _ in range(nodes - 1):
             parent[edge.destination] = edge.source
             updated = True
 
-    if updated:
+    if not updated:
         break
 
 
