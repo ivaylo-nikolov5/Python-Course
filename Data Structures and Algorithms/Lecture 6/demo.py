@@ -1,43 +1,61 @@
 from collections import deque
+from queue import PriorityQueue
 
-nodes = int(input())
+
+class Edge:
+    def __init__(self, source, destination, weight):
+        self.source = source
+        self.destination = destination
+        self.weight = weight
+
+
 edges = int(input())
 
-graph = []
-[graph.append([]) for _ in range(nodes + 1)]
-parents = [None] * (edges + 1)
+graph = {}
 
 for _ in range(edges):
-    source, destination = [int(x) for x in input().split()]
-    graph[source].append(destination)
+    source, destination, weight = [int(x) for x in input().split(", ")]
+    if source not in graph:
+        graph[source] = []
+    if destination not in graph:
+        graph[destination] = []
+
+    graph[source].append(Edge(source, destination, weight))
 
 start = int(input())
 end = int(input())
 
-visited = [False] * (nodes + 1)
+max_node = max(graph.keys())
 
-queue = deque([start])
+distance = [float("inf")] * (max_node + 1)
+parent = [None] * (max_node + 1)
 
-while queue:
-    node = queue.popleft()
+pq = PriorityQueue()
+pq.put((0, start))
+
+while not pq.empty():
+    min_distance, node = pq.get()
+
     if node == end:
         break
 
-    for child in graph[node]:
-        if visited[child]:
-            continue
+    for edge in graph[node]:
+        new_distance = min_distance + edge.weight
+        if new_distance < distance[edge.destination]:
+            distance[edge.destination] = new_distance
+            parent[edge.destination] = node
+            pq.put((new_distance, edge.destination))
 
-        visited[child] = True
-        queue.appendleft(child)
-        parents[child] = node
+if distance[end] == float("inf"):
+    print("There is no such path.")
+else:
+    path = deque()
+    node = end
 
-path = deque()
+    while node:
+        path.appendleft(node)
+        node = parent[node]
 
-node = end
-
-while node:
-    path.appendleft(node)
-    node = parents[node]
-
-print(f"Shortest path length is: {len(path) - 1}")
-print(*path, sep=" ")
+    path.appendleft(start)
+    print(distance[end])
+    print(*path, sep=" ")
