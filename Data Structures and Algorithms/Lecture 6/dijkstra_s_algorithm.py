@@ -34,7 +34,7 @@ distance[start_node] = 0
 
 pq = PriorityQueue()
 pq.put((0, start_node))
-
+reverse = False
 while not pq.empty():
     min_distance, node = pq.get()
     if node == end_node:
