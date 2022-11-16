@@ -1,30 +1,54 @@
-def find_root(node, parent):
-    while node != parent[node]:
-        node = parent[node]
+from collections import deque
 
-    return node
+
+class Edge:
+    def __init__(self, source, destination, weight):
+        self.source = source
+        self.destination = destination
+        self.weight = weight
 
 
 nodes = int(input())
 edges = int(input())
 
 graph = []
-max_num = float("-inf")
 
 for _ in range(edges):
-    first, second, weight = [int(num) for num in input().split(" - ")]
-    graph.append((first, second, weight))
-    max_num = max(first, second, max_num)
+    source, destination, weight = [int(x) for x in input().split()]
+    graph.append(Edge(source, destination, weight))
 
-parent = [num for num in range(max_num + 1)]
-total_cost = 0
+start_node = int(input())
+end_node = int(input())
 
-for first, second, weight in sorted(graph, key=lambda x: x[2]):
-    first_root_node = find_root(first, parent)
-    second_root_node = find_root(second, parent)
+parent = [None] * (nodes + 1)
+distance = [float("inf")] * (nodes + 1)
+distance[start_node] = 0
 
-    if first_root_node != second_root_node:
-        parent[first_root_node] = second_root_node
-        total_cost += weight
+for _ in range(nodes - 1):
+    updated = False
+    for edge in graph:
+        if distance[edge.source] == float("inf"):
+            continue
+        new_distance = distance[edge.source] + edge.weight
+        if new_distance < distance[edge.destination]:
+            distance[edge.destination] = new_distance
+            parent[edge.destination] = edge.source
+            updated = True
 
-print(f"Total cost: {total_cost}")
+    if not updated:
+        break
+
+for edge in graph:
+    new_distance = distance[edge.source] + edge.weight
+    if new_distance < distance[edge.destination]:
+        print("Undefined")
+        break
+else:
+    path = deque()
+    node = end_node
+    while node:
+        path.appendleft(node)
+        node = parent[node]
+
+    print(*path, sep=" ")
+    print(distance[end_node])
