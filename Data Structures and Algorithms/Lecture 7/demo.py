@@ -1,54 +1,61 @@
-from collections import deque
+from queue import PriorityQueue
 
 
 class Edge:
-    def __init__(self, source, destination, weight):
-        self.source = source
-        self.destination = destination
+    def __init__(self, first, second, weight):
+        self.first = first
+        self.second = second
         self.weight = weight
 
+    def __gt__(self, other):
+        return self.weight > other.weight
 
+
+budget = int(input())
 nodes = int(input())
 edges = int(input())
 
 graph = []
+[graph.append([]) for _ in range(nodes)]
+tree = set()
 
 for _ in range(edges):
-    source, destination, weight = [int(x) for x in input().split()]
-    graph.append(Edge(source, destination, weight))
+    edge_data = input().split()
+    first, second, weight = int(edge_data[0]), int(edge_data[1]), int(edge_data[2])
 
-start_node = int(input())
-end_node = int(input())
+    edge = Edge(first, second, weight)
+    graph[first].append(edge)
+    graph[second].append(edge)
 
-parent = [None] * (nodes + 1)
-distance = [float("inf")] * (nodes + 1)
-distance[start_node] = 0
+    if len(edge_data) == 4:
+        tree.add(first)
+        tree.add(second)
 
-for _ in range(nodes - 1):
-    updated = False
-    for edge in graph:
-        if distance[edge.source] == float("inf"):
-            continue
-        new_distance = distance[edge.source] + edge.weight
-        if new_distance < distance[edge.destination]:
-            distance[edge.destination] = new_distance
-            parent[edge.destination] = edge.source
-            updated = True
+pq = PriorityQueue()
+budget_used = 0
 
-    if not updated:
+for node in tree:
+    for edge in graph[node]:
+        pq.put(edge)
+
+
+while not pq.empty():
+    min_edge = pq.get()
+    non_tree_node = None
+
+    if min_edge.first in tree and min_edge.second not in tree:
+        non_tree_node = min_edge.second
+    elif min_edge.first not in tree and min_edge.second in tree:
+        non_tree_node = min_edge.first
+
+    if non_tree_node is None:
+        continue
+    if budget_used + min_edge.weight > budget:
         break
 
-for edge in graph:
-    new_distance = distance[edge.source] + edge.weight
-    if new_distance < distance[edge.destination]:
-        print("Undefined")
-        break
-else:
-    path = deque()
-    node = end_node
-    while node:
-        path.appendleft(node)
-        node = parent[node]
+    tree.add(non_tree_node)
+    budget_used += min_edge.weight
+    for edge in graph[non_tree_node]:
+        pq.put(edge)
 
-    print(*path, sep=" ")
-    print(distance[end_node])
+print(f"Budget used: {budget_used}")
