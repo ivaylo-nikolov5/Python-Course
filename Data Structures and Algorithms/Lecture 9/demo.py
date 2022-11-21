@@ -1,33 +1,38 @@
-replacement_cost = int(input())
-insert_cost = int(input())
-delete_cost = int(input())
+from collections import deque
 
-first = input()
-second = input()
+words = input().split()
 
-rows = len(first) + 1
-cols = len(second) + 1
+size = [0] * len(words)
+size[0] = 1
+parent = [None] * len(words)
+best_idx = 0
+best_size = 0
 
-dp = []
-for _ in range(rows):
-    dp.append([0] * cols)
-
-for col in range(1, cols):
-    dp[0][col] = dp[0][col - 1] + insert_cost
-
-for row in range(1, rows):
-    dp[row][0] = dp[row - 1][0] + delete_cost
-
-
-for row in range(1, rows):
-    for col in range(1, cols):
-        if first[row - 1] == second[col - 1]:
-            dp[row][col] = dp[row - 1][col - 1]
+for idx in range(1, len(words)):
+    current_word = words[idx]
+    current_best_size = 0
+    current_parent = None
+    for prev in range(idx - 1, -1 , -1):
+        prev_word = words[prev]
+        if len(prev_word) >= len(current_word):
             continue
-        dp[row][col] = min(dp[row][col - 1] + insert_cost, dp[row - 1][col] + delete_cost,
-                           dp[row - 1][col - 1] + replacement_cost)
+
+        if size[prev] + 1 >= current_best_size:
+            current_best_size = size[prev] + 1
+            current_parent = prev
+
+    size[idx] = current_best_size
+    parent[idx] = current_parent
+
+    if current_best_size > best_size:
+        best_size = current_best_size
+        best_idx = idx
 
 
-result = dp[rows - 1][cols - 1]
+result = deque()
 
-print(f"Minimum edit distance: {result}")
+while best_idx is not None:
+    result.appendleft(words[best_idx])
+    best_idx = parent[best_idx]
+
+print(*result)
