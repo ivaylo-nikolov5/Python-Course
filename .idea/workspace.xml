@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="71d15db6-d898-4ba0-a0d2-81f064d71503" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Python OOP/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python OOP/.idea/Python OOP.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python OOP/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python OOP/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python OOP/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python OOP/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Python OOP/Lecture 2/project/trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Python OOP/Lecture 2/project/trainer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/.idea/Exam.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/task1.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/task2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Exam/task3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data Structures and Algorithms/Revision/selection_sort.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +34,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Bullet/Desktop/Coding/Python-Course/Python Web"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -43,6 +47,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660896159210</updated>
       <workItem from="1660896163529" duration="22000" />
+      <workItem from="1669291022824" duration="51000" />
     </task>
     <servers />
   </component>
