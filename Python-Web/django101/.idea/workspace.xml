@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd4f5815-723f-493e-bc8f-07a730a9b8a9" name="Changes" comment="Connected a DB to the project and added a table">
-      <change afterPath="$PROJECT_DIR$/django101/tasks/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dcefab0b-02ac-405d-a139-5eb8686ae1cb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dcefab0b-02ac-405d-a139-5eb8686ae1cb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dcefab0b-02ac-405d-a139-5eb8686ae1cb/storage_v2/_src_/database/tasks_db.z6Kb5w/schema/information_schema.FNRwLQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dcefab0b-02ac-405d-a139-5eb8686ae1cb/storage_v2/_src_/database/tasks_db.z6Kb5w/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dcefab0b-02ac-405d-a139-5eb8686ae1cb/storage_v2/_src_/database/tasks_db.z6Kb5w/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dcefab0b-02ac-405d-a139-5eb8686ae1cb/storage_v2/_src_/database/tasks_db.z6Kb5w/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+    <list default="true" id="dd4f5815-723f-493e-bc8f-07a730a9b8a9" name="Changes" comment="Added urls">
+      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django101/tasks/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/django101/tasks/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django101/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django101/tasks/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/django101/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django101/tasks/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django101/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django101/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +19,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -44,6 +40,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
@@ -95,7 +92,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669874224518</updated>
       <workItem from="1669874230120" duration="1344000" />
-      <workItem from="1669878978487" duration="5127000" />
+      <workItem from="1669878978487" duration="6056000" />
     </task>
     <task id="LOCAL-00001" summary="Added a new Django project">
       <created>1669877238110</created>
@@ -118,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669894804114</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added urls">
+      <created>1669900025253</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669900025253</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +140,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added a new Django project" />
     <MESSAGE value="Connected a DB to the project and added a table" />
-    <option name="LAST_COMMIT_MESSAGE" value="Connected a DB to the project and added a table" />
+    <MESSAGE value="Added urls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added urls" />
   </component>
 </project>
