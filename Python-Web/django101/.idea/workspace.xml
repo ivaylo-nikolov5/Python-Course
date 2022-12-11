@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dd4f5815-723f-493e-bc8f-07a730a9b8a9" name="Changes" comment="Added urls">
-      <change afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+    <list default="true" id="dd4f5815-723f-493e-bc8f-07a730a9b8a9" name="Changes" comment="Added basic HTML">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django101/tasks/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django101/tasks/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django101/tasks/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django101/tasks/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,21 +34,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\ivayl\Desktop\Coding\Python-Course\Python-Web\django101\django101" />
@@ -92,7 +89,10 @@
       <option name="presentableId" value="Default" />
       <updated>1669874224518</updated>
       <workItem from="1669874230120" duration="1344000" />
-      <workItem from="1669878978487" duration="6056000" />
+      <workItem from="1669878978487" duration="6982000" />
+      <workItem from="1670069431098" duration="123000" />
+      <workItem from="1670069593740" duration="10000" />
+      <workItem from="1670751108147" duration="734000" />
     </task>
     <task id="LOCAL-00001" summary="Added a new Django project">
       <created>1669877238110</created>
@@ -122,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669900025253</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added basic HTML">
+      <created>1669901342118</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1669901342118</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,6 +148,7 @@
     <MESSAGE value="Added a new Django project" />
     <MESSAGE value="Connected a DB to the project and added a table" />
     <MESSAGE value="Added urls" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added urls" />
+    <MESSAGE value="Added basic HTML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added basic HTML" />
   </component>
 </project>
