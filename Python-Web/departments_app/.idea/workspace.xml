@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a5c97b5e-d1ae-4b0b-b3ea-c3f3c6f26070" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/departments_app.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/admin.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/apps.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/migrations/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/models.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/tests.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/departments/views.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/settings.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/departments_app/wsgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments/.idea/departments.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/.idea/departments101.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/db.sqlite3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/departments/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/departments101/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/departments101/manage.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IlZ2XzBmobhM8aOyJI23YQtiWC" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ivayl\Desktop\Coding\Python-Course\Python-Web\departments_app\departments_app" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="departments_app" type="Python.DjangoServer" factoryName="Django server">
+      <module name="departments_app" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="departments_app.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a5c97b5e-d1ae-4b0b-b3ea-c3f3c6f26070" name="Changes" comment="" />
+      <created>1670757924947</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670757924947</updated>
+      <workItem from="1670757958028" duration="3617000" />
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
