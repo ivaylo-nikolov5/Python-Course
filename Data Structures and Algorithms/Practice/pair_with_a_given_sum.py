@@ -15,7 +15,7 @@ def find_pair_with_given_sum(numbers, target):
         print(f"Pair found {pair}")
 
 
-def solution2(numbers, target):
+def sorting(numbers, target):
     result = []
     numbers = sorted(numbers)
 
@@ -39,4 +39,24 @@ def solution2(numbers, target):
     for res in result:
         print(res)
 
-solution2([8, 7, 2, 5, 3, 1], 10)
+
+def hashing(numbers, target):
+    pairs = []
+    hashes = {}
+
+    for i, e in enumerate(numbers):
+        if target - e in hashes:
+            pairs.append(f"Pair found: ({e}, {target - e})")
+            continue
+
+        hashes[e] = i
+
+    if not pairs:
+        print("Pair not found")
+        return
+
+    for pair in pairs:
+        print(pair)
+
+
+hashing([8, 7, 2, 5, 3, 1], 10)
