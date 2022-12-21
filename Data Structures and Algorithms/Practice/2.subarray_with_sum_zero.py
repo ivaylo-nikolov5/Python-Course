@@ -1,15 +1,3 @@
-def solution(numbers, idx, subarray):
-    for i in range(idx, len(numbers)):
-        number = numbers[i]
-        subarray.append(number)
-        solution(numbers, i + 1, subarray)
-
-        if sum(subarray) == 0 and len(subarray) > 0:
-            return True
-
-        subarray.pop()
-
-
 def hashing(numbers):
     sums = set()
 
